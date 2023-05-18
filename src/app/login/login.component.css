@@ -6,13 +6,14 @@
     box-sizing: border-box;
 }
 .body{
-    font-family: 'Roboto';
+    font-family: 'Rubik';
     background: #2b5876;
     background: -webkit-linear-gradient(to bottom, #4e4376, #2b5876);
     background: linear-gradient(to top, #4e4376, #2b5876);
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 h1{
@@ -42,7 +43,7 @@ input{
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #49454567;
+    border-bottom: 2px solid #49454567;
 }
 input:focus{
     outline: none;
@@ -104,4 +105,10 @@ button{
 .link{
     cursor: pointer;
     color: #4e4376;
+}
+.titulo{
+    margin: 0;
+    font-family: 'Rubik';
+    font-size: 70px;
+    color: #ffffff;
 }
