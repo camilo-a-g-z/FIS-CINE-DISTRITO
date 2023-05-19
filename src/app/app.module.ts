@@ -15,11 +15,19 @@ import {
 } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from './servicios/login.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firestore, 'cine-distrito'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FormsModule,
+  ],
+  providers: [LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
