@@ -14,6 +14,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from './servicios/login.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent],
@@ -25,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireAuthModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
