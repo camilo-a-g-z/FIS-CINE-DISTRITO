@@ -11,7 +11,13 @@
   <h1 class="titulo">Cine Distrito</h1>
   <form action="" method="POST" id="form">
     <div class="form">
-      <h1>Inicia sesión</h1>
+      <h1>Registro</h1>
+      <div class="grupo">
+        <input type="text" name="" id="name" required /><span
+          class="barra"
+        ></span>
+        <label for="">Nombre</label>
+      </div>
       <div class="grupo">
         <input type="email" name="" id="name" required /><span
           class="barra"
@@ -24,10 +30,10 @@
         ></span>
         <label for="">Contraseña</label>
       </div>
-      <button type="submit">Ingresar</button>
+      <button type="submit">Registrarse</button>
       <p>
-        ¿No tienes una cuenta?
-        <a class="link" routerLink="/sign-up">¡Regístrate!</a>
+        ¿Ya tienes una cuenta?
+        <a class="link" routerLink="/login">¡Inicia sesión!</a>
       </p>
     </div>
   </form>

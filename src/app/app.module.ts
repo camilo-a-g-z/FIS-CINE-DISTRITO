@@ -18,9 +18,10 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from './servicios/login.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, FooterComponent, CatalogComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, FooterComponent, CatalogComponent, SignUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
