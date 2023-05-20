@@ -1,42 +1,62 @@
-<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+  rel="stylesheet"
+/>
 
 <div class="body">
-    <h1 class="titulo">
-        Cine Distrito
-    </h1>
-    <form action="" method="POST" id="form" *ngIf="!esRegistro">
-        <div class="form">
-            <h1>Registro</h1>
-            <div class="grupo">
-                <input type="text" name="" id="name" required><span class="barra"></span>
-                <label for="">Nombre</label>
-            </div>
-            <div class="grupo">
-                <input type="email" name="" id="name" required><span class="barra"></span>
-                <label for="">Correo</label>
-            </div>
-            <div class="grupo">
-                <input type="password" name="" id="name" required><span class="barra"></span>
-                <label for="">Contraseña</label>
-            </div>
-            <button type="submit">Registrarse</button>
-            <p>¿Ya tienes una cuenta? <a class="link" (click)="cambioVentana()">¡Inicia sesión!</a></p>
-        </div>
-    </form>
-    <form action="" method="POST" id="form" *ngIf="esRegistro">
-        <div class="form">
-            <h1>Inicia sesión</h1>
-            <div class="grupo">
-                <input type="email" name="" id="name" required><span class="barra"></span>
-                <label for="">Correo</label>
-            </div>
-            <div class="grupo">
-                <input type="password" name="" id="name" required><span class="barra"></span>
-                <label for="">Contraseña</label>
-            </div>
-            <button type="submit">Ingresar</button>
-            <p>¿No tienes una cuenta? <a class="link" (click)="cambioVentana()">¡Regístrate!</a></p>
-        </div>
-    </form>
+  <h1 class="titulo">Cine Distrito</h1>
+  <form action="" method="POST" id="form" *ngIf="!esRegistro">
+    <div class="form">
+      <h1>Registro</h1>
+      <div class="grupo">
+        <input type="text" name="" id="name" required /><span
+          class="barra"
+        ></span>
+        <label for="">Nombre</label>
+      </div>
+      <div class="grupo">
+        <input type="email" name="" id="name" required /><span
+          class="barra"
+        ></span>
+        <label for="">Correo</label>
+      </div>
+      <div class="grupo">
+        <input type="password" name="" id="name" required /><span
+          class="barra"
+        ></span>
+        <label for="">Contraseña</label>
+      </div>
+      <button type="submit">Registrarse</button>
+      <p>
+        ¿Ya tienes una cuenta?
+        <a class="link" (click)="cambioVentana()">¡Inicia sesión!</a>
+      </p>
+    </div>
+  </form>
+  <form action="" method="POST" id="form" *ngIf="esRegistro">
+    <div class="form">
+      <h1>Inicia sesión</h1>
+      <div class="grupo">
+        <input type="email" name="" id="name" required /><span
+          class="barra"
+        ></span>
+        <label for="">Correo</label>
+      </div>
+      <div class="grupo">
+        <input type="password" name="" id="name" required /><span
+          class="barra"
+        ></span>
+        <label for="">Contraseña</label>
+      </div>
+      <button type="submit">Ingresar</button>
+      <p>
+        ¿No tienes una cuenta?
+        <a class="link" (click)="cambioVentana()">¡Regístrate!</a>
+      </p>
+    </div>
+  </form>
 </div>
