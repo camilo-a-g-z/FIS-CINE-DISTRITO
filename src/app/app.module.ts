@@ -17,9 +17,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './servicios/login.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, FooterComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, FooterComponent, CatalogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
