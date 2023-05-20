@@ -73,11 +73,11 @@ input:valid~label{
 }
 .barra::before{
     content: "";
-    height: 2px;
+    height: 1.5px;
     width: 0%;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(to right, #4e4376, #2b5876);
+    background: linear-gradient(to right, #3f51bb, #000000);
     transition: 0.3s ease width;
     left: 0;
 }
