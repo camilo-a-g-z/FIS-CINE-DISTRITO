@@ -9,22 +9,30 @@
 
 <div class="body">
   <h1 class="titulo">Cine Distrito</h1>
-  <form action="" method="POST" id="form">
+  <form (submit)="login()">
     <div class="form">
       <h1>Inicia sesión</h1>
       <div class="grupo">
-        <input type="email" name="" id="name" required /><span
-          class="barra"
-        ></span>
+        <input
+          type="text"
+          name="email"
+          class="form-control"
+          [(ngModel)]="email"
+          required
+        /><span class="barra"></span>
         <label for="">Correo</label>
       </div>
       <div class="grupo">
-        <input type="password" name="" id="name" required /><span
-          class="barra"
-        ></span>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          [(ngModel)]="password"
+          required
+        /><span class="barra"></span>
         <label for="">Contraseña</label>
       </div>
-      <button type="submit">Ingresar</button>
+      <input type="submit" value="login" />
       <p>
         ¿No tienes una cuenta?
         <a class="link" routerLink="/sign-up">¡Regístrate!</a>
