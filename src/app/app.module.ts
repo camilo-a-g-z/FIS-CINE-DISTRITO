@@ -19,9 +19,18 @@ import { LoginService } from './servicios/login.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { PeliculaService } from './servicios/pelicula.service';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, NavbarComponent, FooterComponent, CatalogComponent, SignUpComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    NavbarComponent,
+    FooterComponent,
+    CatalogComponent,
+    SignUpComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +39,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     AngularFireAuthModule,
     FormsModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService, PeliculaService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
