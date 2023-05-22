@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClienteService } from 'src/app/servicios/cliente.service';
 import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
@@ -10,8 +11,14 @@ import { LoginService } from 'src/app/servicios/login.service';
 export class SignUpComponent implements OnInit {
   email: string = '';
   password: string = '';
+  nombre: string = '';
+  apellido: string = '';
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private clienteService: ClienteService
+  ) {}
   ngOnInit(): void {
     this.loginService.getAuth().subscribe((auth) => {
       if (auth) {
@@ -20,6 +27,12 @@ export class SignUpComponent implements OnInit {
     });
   }
   registro() {
+    this.clienteService.agregarCliente({
+      nombre: this.nombre,
+      apellido: this.apellido,
+      correo: this.email,
+      puntosDistrito: 0,
+    });
     this.loginService
       .registrarse(this.email, this.password)
       .then((res) => {

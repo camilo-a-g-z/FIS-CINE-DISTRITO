@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PeliculaService } from './servicios/pelicula.service';
+import { ClienteService } from './servicios/cliente.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { PeliculaService } from './servicios/pelicula.service';
     AngularFireAuthModule,
     FormsModule,
   ],
-  providers: [LoginService, PeliculaService],
+  providers: [LoginService, PeliculaService, ClienteService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
