@@ -28,14 +28,10 @@
       <li class="nav__items" *ngIf="!isLogged">
         <a routerLink="/login" class="nav__links">Loging</a>
       </li>
-      <i class="nav__items"></i>
-      Bienvenido
-      {{
-        loggedUser
-      }}
+      <i *ngIf="isLogged" class="nav__items">Bienvenido {{ loggedUser }}</i>
       <li *ngIf="isLogged" class="nav__items">
         <a style="cursor: pointer" (click)="logOut()" class="nav-link">
-          <i class="fas fa-user-times"></i> Salir
+          <i class="fas fa-user-times">Salir</i>
         </a>
       </li>
     </ul>
