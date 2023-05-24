@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, fromCollectionRef} from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
+import { Sala } from '../modelo/sala.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacturaService {
 
+  //EN CONSTRUCCION
+
   constructor(private db: AngularFirestore) { }
 
-  getSalasMultiplex(multiplex:string): Observable<Sala[]> {
-    // Obtenemos las peliculas
-    let colec = this.db.collection("multiplex").doc(multiplex).collection("sala")
+  getFacturas(correo:string): Observable<Sala[]> {
+    // Obtenemos las peliculas)
+    let colec = this.db.collection("facturas")
     let salas = colec.snapshotChanges().pipe(
       map((cambios) => {
         return cambios.map((accion) => {
