@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 export class LoginService {
   constructor(private authService: AngularFireAuth) {}
 
+  isLoggedUser:boolean
+  
   login(email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.authService.signInWithEmailAndPassword(email, password).then(

@@ -3,6 +3,7 @@ import { AngularFirestore, fromCollectionRef} from '@angular/fire/compat/firesto
 import { Observable, map } from 'rxjs';
 import { Sala } from '../modelo/sala.model';
 import { Factura } from '../modelo/factura.model';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,15 @@ export class FacturaService {
 
   //EN CONSTRUCCION
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore, private loginService:LoginService) { }
 
-  getFacturas(correo:string): Observable<Factura[]> {
-    // Obtenemos las peliculas)
+  getFacturas(): Observable<Factura[]> {
+    // Obtenemos el usuario logeado
+    let correo = this.loginService.getAuth().subscribe((auth)=>{
+      if(auth){
+        return auth.email;
+      }else return "";
+    })
     let colec = this.db.collection("facturas",ref => ref.where("correo","==",correo))
     let facturas = colec.snapshotChanges().pipe(
       map((cambios) => {
@@ -27,12 +33,22 @@ export class FacturaService {
     return facturas
   }
 
-  agregarFacturaNueva(factura:Factura,correo:string) {
+  agregarFacturaNueva(factura:Factura) {
+    let correo = this.loginService.getAuth().subscribe((auth)=>{
+      if(auth){
+        return auth.email;
+      }else return "";
+    })
     let colec = this.db.collection("facturas",ref => ref.where("correo","==",correo))
     colec.add(factura);
   }
 
-  getFactura(correo:string, id:string) {
+  getFactura( id:string) {
+    let correo = this.loginService.getAuth().subscribe((auth)=>{
+      if(auth){
+        return auth.email;
+      }else return "";
+    })
     let doc = this.db.collection("facturas",ref => ref.where("correo","==",correo)).doc(id)
     let factura = doc.snapshotChanges().pipe(
       map((accion) => {
@@ -47,7 +63,12 @@ export class FacturaService {
     return factura;
   }
 
-  eliminarFactura(correo:string, id:string) {
+  eliminarFactura( id:string) {
+    let correo = this.loginService.getAuth().subscribe((auth)=>{
+      if(auth){
+        return auth.email;
+      }else return "";
+    })
     let doc = this.db.collection("facturas",ref => ref.where("correo","==",correo)).doc(id)
     doc.delete();
   }

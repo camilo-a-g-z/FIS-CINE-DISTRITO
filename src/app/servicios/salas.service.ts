@@ -2,32 +2,39 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Sala } from '../modelo/sala.model';
 import { Observable,map } from 'rxjs';
+import { MultiplexService } from './multiplex.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SalasService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore,private mService:MultiplexService) { }
 
 
-  getSalasMultiplex(multiplex:string): Observable<Sala[]> {
+  getSalasMultiplex(multiplex:string): Observable<Sala[]>|null{
     // Obtenemos las peliculas
-    let colec = this.db.collection("multiplex").doc(multiplex).collection("sala")
-    let salas = colec.snapshotChanges().pipe(
-      map((cambios) => {
-        return cambios.map((accion) => {
-          const datos = accion.payload.doc.data() as Sala;
-          return datos;
-        });
-      })
-    );
-    return salas
+    if(this.mService.existeMultiplex(multiplex)){
+      let colec = this.db.collection("multiplex").doc(multiplex).collection("sala")
+      let salas = colec.snapshotChanges().pipe(
+        map((cambios) => {
+          return cambios.map((accion) => {
+            const datos = accion.payload.doc.data() as Sala;
+            return datos;
+          });
+        })
+      );
+      return salas;
+    }else{
+      return null;
+    }
   }
 
   agregarSala(sala:Sala,multiplex:string) {
-    let colec = this.db.collection("multiplex").doc(multiplex).collection("sala")
-    colec.add(sala);
+    if(this.mService.existeMultiplex(multiplex)){
+      let colec = this.db.collection("multiplex").doc(multiplex).collection("sala")
+      colec.add(sala);
+    }
   }
 
   getSala(numero:number,multiplex:string) {

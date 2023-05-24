@@ -66,4 +66,13 @@ export class MultiplexService {
     this.multiplexesDoc = this.db.doc(`multiplex/${multiplex.nombre}`);
     this.multiplexesDoc.delete();
   }
+
+  existeMultiplex(multiplex:string){
+    this.multiplexesDoc = this.db.doc<Multiplex>(`multiplex/${multiplex}`);
+    return this.multiplexesDoc.snapshotChanges().pipe(
+      map((accion) => {
+        return accion.payload.exists
+      })
+    );
+  }
 }
