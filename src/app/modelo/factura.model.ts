@@ -1,4 +1,4 @@
-export interface factura{
+export interface Factura{
     correo:string
     fecha:Date
     funcion:{

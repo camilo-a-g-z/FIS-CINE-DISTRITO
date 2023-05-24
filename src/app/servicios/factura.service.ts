@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, fromCollectionRef} from '@angular/fire/compat/firestore';
 import { Observable, map } from 'rxjs';
 import { Sala } from '../modelo/sala.model';
+import { Factura } from '../modelo/factura.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,28 +13,28 @@ export class FacturaService {
 
   constructor(private db: AngularFirestore) { }
 
-  getFacturas(correo:string): Observable<Sala[]> {
+  getFacturas(correo:string): Observable<Factura[]> {
     // Obtenemos las peliculas)
-    let colec = this.db.collection("facturas")
-    let salas = colec.snapshotChanges().pipe(
+    let colec = this.db.collection("facturas",ref => ref.where("correo","==",correo))
+    let facturas = colec.snapshotChanges().pipe(
       map((cambios) => {
         return cambios.map((accion) => {
-          const datos = accion.payload.doc.data() as Sala;
+          const datos = accion.payload.doc.data() as Factura;
           return datos;
         });
       })
     );
-    return salas
+    return facturas
   }
 
-  agregarSala(sala:Sala,multiplex:string) {
-    let colec = this.db.collection("multiplex").doc(multiplex).collection("sala")
-    colec.add(sala);
+  agregarFacturaNueva(factura:Factura,correo:string) {
+    let colec = this.db.collection("facturas",ref => ref.where("correo","==",correo))
+    colec.add(factura);
   }
 
-  getSala(numero:number,multiplex:string) {
-    let doc = this.db.doc(`multiplex/${multiplex}`).collection("sala").doc(numero.toString());
-    let sala = doc.snapshotChanges().pipe(
+  getFactura(correo:string, id:string) {
+    let doc = this.db.collection("facturas",ref => ref.where("correo","==",correo)).doc(id)
+    let factura = doc.snapshotChanges().pipe(
       map((accion) => {
         if (accion.payload.exists === false) {
           return null;
@@ -43,16 +44,11 @@ export class FacturaService {
         }
       })
     );
-    return sala;
+    return factura;
   }
 
-  modificarSala(sala:Sala,multiplex:string) {
-    let doc = this.db.doc(`multiplex/${multiplex}`).collection("sala").doc(sala.numero.toString());
-    doc.update(sala);
-  }
-
-  eliminarSala(sala:Sala,multiplex:string) {
-    let doc = this.db.doc(`multiplex/${multiplex}`).collection("sala").doc(sala.numero.toString());
+  eliminarFactura(correo:string, id:string) {
+    let doc = this.db.collection("facturas",ref => ref.where("correo","==",correo)).doc(id)
     doc.delete();
   }
 
