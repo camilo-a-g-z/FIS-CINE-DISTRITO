@@ -21,6 +21,9 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PeliculaService } from './servicios/pelicula.service';
 import { ClienteService } from './servicios/cliente.service';
+import { SeleccionFuncionComponentComponent } from './components/seleccion-funcion-component/seleccion-funcion-component.component';
+import { SeleccionSillasComponentComponent } from './components/seleccion-sillas-component/seleccion-sillas-component.component';
+import { ResumenCompraComponentComponent } from './components/resumen-compra-component/resumen-compra-component.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { ClienteService } from './servicios/cliente.service';
     FooterComponent,
     CatalogComponent,
     SignUpComponent,
+    SeleccionFuncionComponentComponent,
+    SeleccionSillasComponentComponent,
+    ResumenCompraComponentComponent,
   ],
   imports: [
     BrowserModule,
