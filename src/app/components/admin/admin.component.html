@@ -1,0 +1,18 @@
+<div class = "body">
+    <div class = "sidebar">
+        <ul>
+            <li>
+                <a class = "btn btn-primary boton-menu">Empleados</a>
+            </li>
+            <li>
+                <button class = "btn btn-primary boton-menu">Multiplex</button>
+            </li>
+            <li>
+                <button class = "btn btn-primary boton-menu" [routerLink] = "['peliculas']">Peliculas</button>
+            </li>
+        </ul>
+    </div>
+    <div class="ventana">
+        <router-outlet></router-outlet>
+    </div>
+</div>

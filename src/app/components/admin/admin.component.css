@@ -1,0 +1,21 @@
+.boton-menu{
+    display: block;
+    width: 100%;
+}
+
+ul{
+    list-style-type:none;
+    padding: 0px;
+}
+
+.body{
+    display: flex;
+    flex-wrap: nowrap;
+    margin:50px;
+    border: solid gray 1px;
+}
+
+.ventana{
+    border: solid gray 1px;
+    width: 100%
+}

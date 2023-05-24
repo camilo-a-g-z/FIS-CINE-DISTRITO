@@ -24,6 +24,8 @@ import { ClienteService } from './servicios/cliente.service';
 import { SeleccionFuncionComponentComponent } from './components/seleccion-funcion-component/seleccion-funcion-component.component';
 import { SeleccionSillasComponentComponent } from './components/seleccion-sillas-component/seleccion-sillas-component.component';
 import { ResumenCompraComponentComponent } from './components/resumen-compra-component/resumen-compra-component.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { PeliculasAdminComponent } from './components/peliculas-admin/peliculas-admin.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ResumenCompraComponentComponent } from './components/resumen-compra-com
     SeleccionFuncionComponentComponent,
     SeleccionSillasComponentComponent,
     ResumenCompraComponentComponent,
+    AdminComponent,
+    PeliculasAdminComponent,
   ],
   imports: [
     BrowserModule,
