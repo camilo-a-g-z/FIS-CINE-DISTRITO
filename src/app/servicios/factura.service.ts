@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Sala } from '../modelo/sala.model';
-import { Observable,map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SalasService {
+export class FacturaService {
 
   constructor(private db: AngularFirestore) { }
-
 
   getSalasMultiplex(multiplex:string): Observable<Sala[]> {
     // Obtenemos las peliculas
@@ -54,4 +51,6 @@ export class SalasService {
     let doc = this.db.doc(`multiplex/${multiplex}`).collection("sala").doc(sala.numero.toString());
     doc.delete();
   }
+
+
 }
