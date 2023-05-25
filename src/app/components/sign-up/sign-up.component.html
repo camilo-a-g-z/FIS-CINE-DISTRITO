@@ -19,7 +19,7 @@
           class="form-control"
           [(ngModel)]="nombre"
           required=""
-        /><span class="barra"></span>
+        />
         <label for="">Nombre</label>
       </div>
       <div class="grupo">
@@ -29,7 +29,7 @@
           class="form-control"
           [(ngModel)]="apellido"
           required=""
-        /><span class="barra"></span>
+        />
         <label for="">Apellido</label>
       </div>
       <div class="grupo">
@@ -39,7 +39,7 @@
           class="form-control"
           [(ngModel)]="email"
           required
-        /><span class="barra"></span>
+        />
         <label for="">Correo</label>
       </div>
       <div class="grupo">
@@ -49,10 +49,10 @@
           class="form-control"
           [(ngModel)]="password"
           required
-        /><span class="barra"></span>
+        />
         <label for="">Contraseña</label>
       </div>
-      <input type="submit" value="registro" />
+      <input class="boton" type="submit" value="registro" />
       <p>
         ¿Ya tienes una cuenta?
         <a class="link" routerLink="/login">¡Inicia sesión!</a>
