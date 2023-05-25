@@ -26,6 +26,8 @@ import { SeleccionSillasComponentComponent } from './components/seleccion-sillas
 import { ResumenCompraComponentComponent } from './components/resumen-compra-component/resumen-compra-component.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PeliculasAdminComponent } from './components/peliculas-admin/peliculas-admin.component';
+import { EmpleadosAdminComponent } from './components/empleados-admin/empleados-admin.component';
+import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-admin.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { PeliculasAdminComponent } from './components/peliculas-admin/peliculas-
     ResumenCompraComponentComponent,
     AdminComponent,
     PeliculasAdminComponent,
+    EmpleadosAdminComponent,
+    MultiplexAdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,11 +11,13 @@ ul{
 .body{
     display: flex;
     flex-wrap: nowrap;
-    margin:50px;
+    margin: 5%;
     border: solid gray 1px;
+    width: 90%;
+    height: 90%;
 }
 
 .ventana{
-    border: solid gray 1px;
+    border: solid #ffffffa1 1px;
     width: 100%
 }
