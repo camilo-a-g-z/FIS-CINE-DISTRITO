@@ -17,7 +17,7 @@
           type="text"
           name="email"
           class="form-control"
-          [(ngModel)]="email"
+          [(ngModel)]="cedula"
           required
         /><span class="barra"></span>
         <label for="">Correo</label>
@@ -34,12 +34,8 @@
       </div>
       <input type="submit" value="login" />
       <p>
-        ¿No tienes una cuenta?
-        <a class="link" routerLink="/sign-up">¡Regístrate!</a>
-      </p>
-      <p>
-        ¿Eres un emeplado?
-        <a class="link" routerLink="/loginEmplado">¡Ingresa aqui!</a>
+        ¿Eres un cliente?
+        <a class="link" routerLink="/login">¡Ingresa a tu cuenta!</a>
       </p>
     </div>
   </form>

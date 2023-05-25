@@ -28,6 +28,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { PeliculasAdminComponent } from './components/peliculas-admin/peliculas-admin.component';
 import { EmpleadosAdminComponent } from './components/empleados-admin/empleados-admin.component';
 import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-admin.component';
+import { LoginEmpleadoComponent } from './components/login-empleado/login-empleado.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-
     PeliculasAdminComponent,
     EmpleadosAdminComponent,
     MultiplexAdminComponent,
+    LoginEmpleadoComponent,
   ],
   imports: [
     BrowserModule,

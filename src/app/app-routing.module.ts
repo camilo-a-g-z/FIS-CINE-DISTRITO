@@ -7,18 +7,22 @@ import { AdminComponent } from './components/admin/admin.component';
 import { PeliculasAdminComponent } from './components/peliculas-admin/peliculas-admin.component';
 import { EmpleadosAdminComponent } from './components/empleados-admin/empleados-admin.component';
 import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-admin.component';
-
+import { LoginEmpleadoComponent } from './components/login-empleado/login-empleado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'admin', component: AdminComponent ,
-    children:[
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
       { path: 'empleados', component: EmpleadosAdminComponent },
       { path: 'multiplex', component: MultiplexAdminComponent },
       { path: 'peliculas', component: PeliculasAdminComponent },
-    ]}
+    ],
+  },
+  { path: 'loginEmplado', component: LoginEmpleadoComponent },
 ];
 
 @NgModule({
