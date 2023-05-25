@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 .body{
-    background-color: #ffffff73;
     width: 100%;
     height: 100%;
     display: block;
+    overflow: hidden;
+    background-color: #ffffff73;
 }
 h1{
     font-family: 'Rubik';
@@ -15,18 +16,21 @@ h1{
     padding-top: 5%;
 }
 .container{
-    width: auto;
+    width: 100%;
     height: auto;
 }
-table{
+#tabla1{
     color: #ffffff;
-    font-size: 14px;
-    table-layout: fixed;
+    font-size: 12px;
     border-collapse: collapse;
     margin: 5%;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
 }
 thead{
-    background: #5acab280;
+    background: #6ddb9780;
 }
 th{
     padding: 20px 15px;
@@ -36,10 +40,14 @@ th{
 td{
     padding: 15px;
     border-bottom: solid 1px #ffffff59;
+    width: 100px;
 }
 tbody tr{
     cursor: pointer;
 }
 tbody tr:hover{
-    background: #5acab280;
+    background: #6ddb9780;
+}
+#tabla1 td{
+    word-wrap: break-word;
 }
