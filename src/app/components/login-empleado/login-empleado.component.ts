@@ -13,7 +13,11 @@ export class LoginEmpleadoComponent implements OnInit {
 
   constructor(private loginService: LoginService, private router: Router) {}
   ngOnInit(): void {
-    //
+    this.loginService.getAuth().subscribe((auth) => {
+      if (auth) {
+        this.router.navigate(['/']);
+      }
+    });
   }
   login() {
     this.loginService.loginEmpleado(this.cedula, this.password);

@@ -8,33 +8,33 @@
 />
 
 <div class="body">
-    <h1>Lista de empleados</h1>
-    <div class="container">
-        <table id="tabla1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Cedula</th>
-                    <th>Multiplex</th>
-                    <th>Telefono</th>
-                    <th>Salario</th>
-                    <th>Fecha de Contrato</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Rupertina</td>
-                    <td>Hernandez</td>
-                    <td>1071458963</td>
-                    <td>Multiplaza</td>
-                    <td>3548965488</td>
-                    <td>700.000</td>
-                    <td>18/05/2023</td>
-                    <td>Editar / Borrar</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <h1>Lista de empleados</h1>
+  <div class="container">
+    <table id="tabla1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Multiplex</th>
+          <th>Telefono</th>
+          <th>Salario</th>
+          <th>Fecha de Contrato</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let empleado of empleados">
+        <tr>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.apellido }}</td>
+          <td>{{ empleado.cedula }}</td>
+          <td>{{ empleado.multiplex }}</td>
+          <td>{{ empleado.numTelefono }}</td>
+          <td>{{ empleado.salario }}</td>
+          <td>{{ empleado.fechaContrato }}</td>
+          <td>Editar / Borrar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

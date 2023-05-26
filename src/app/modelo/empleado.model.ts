@@ -1,3 +1,5 @@
+import { Timestamp } from 'rxjs';
+
 export interface Empleado {
   apellido: string;
   cedula: string;
@@ -5,5 +7,5 @@ export interface Empleado {
   salario: number;
   multiplex: string;
   numTelefono: string;
-  fechaContrato: Date;
+  fechaContrato: any;
 }

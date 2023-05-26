@@ -36,7 +36,7 @@ export class LoginService {
           if (empleado) {
             this.isLoggedUser = true;
             alert('Bienvenido ' + empleado.nombre);
-            this.router.navigate(['/']);
+            this.router.navigate(['/admin']);
           } else {
             this.isLoggedUser = false;
             alert('Credenciales incorrectas');

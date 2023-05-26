@@ -27,6 +27,9 @@ export class EmpleadoService {
         return cambios.map((accion) => {
           const datos = accion.payload.doc.data() as Empleado;
           datos.cedula = accion.payload.doc.id;
+          datos.fechaContrato = accion.payload.doc
+            .data()
+            .fechaContrato.toDate();
           return datos;
         });
       })
@@ -46,6 +49,7 @@ export class EmpleadoService {
         } else {
           const datos = accion.payload.data() as Empleado;
           datos.cedula = accion.payload.id;
+          datos.fechaContrato = accion.payload.data().fechaContrato.toDate();
           return datos;
         }
       })
