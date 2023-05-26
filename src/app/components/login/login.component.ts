@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.loginService
       .login(this.email, this.password)
       .then((res) => {
-        console.log('usuario logueado');
+        alert('Bienvenido');
         this.router.navigate(['/']);
       })
       .catch((err) => {

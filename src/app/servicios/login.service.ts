@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map } from 'rxjs/operators';
 import { EmpleadoService } from './empleado.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
   constructor(
     private authService: AngularFireAuth,
-    private empleadoService: EmpleadoService
+    private empleadoService: EmpleadoService,
+    private router: Router
   ) {}
 
   isLoggedUser: boolean;
@@ -34,9 +36,10 @@ export class LoginService {
           if (empleado) {
             this.isLoggedUser = true;
             alert('Bienvenido ' + empleado.nombre);
+            this.router.navigate(['/']);
           } else {
             this.isLoggedUser = false;
-            alert('Credenciales incorrectas desde servicio');
+            alert('Credenciales incorrectas');
           }
         });
       }
