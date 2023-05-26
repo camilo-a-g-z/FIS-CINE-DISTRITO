@@ -28,20 +28,19 @@ export class LoginService {
         (userData) => resolve(userData),
         (err) => reject(err)
       );
-    });
-    //se comprueba si el usuario existe en la coleccion de empleados
-    empleado.then((userData) => {
+    }).then((userData) => {
       if (userData) {
         this.empleadoService.getEmpleado(cedula).subscribe((empleado) => {
           if (empleado) {
             this.isLoggedUser = true;
+            alert('Bienvenido ' + empleado.nombre);
           } else {
             this.isLoggedUser = false;
+            alert('Credenciales incorrectas desde servicio');
           }
         });
       }
     });
-    return this.isLoggedUser;
   }
 
   getAuth() {

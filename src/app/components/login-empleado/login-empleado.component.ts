@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
   selector: 'app-login-empleado',
   templateUrl: './login-empleado.component.html',
   styleUrls: ['./login-empleado.component.css'],
 })
-export class LoginEmpleadoComponent {
+export class LoginEmpleadoComponent implements OnInit {
   cedula: string;
   password: string;
 
-  login() {}
+  constructor(private loginService: LoginService, private router: Router) {}
+  ngOnInit(): void {
+    //
+  }
+  login() {
+    this.loginService.loginEmpleado(this.cedula, this.password);
+  }
 }
