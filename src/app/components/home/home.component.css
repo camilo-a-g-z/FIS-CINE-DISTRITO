@@ -6,6 +6,7 @@
 .itemCarrusel{
     height: 100%;
     position: relative;
+    width: 100%;
 }
 .tarjetaCarrusel{
     height: 100%;
@@ -21,7 +22,7 @@
     padding: 20px;
 }
 #conteItemsCarrusel{
-    height: 20%;
+    height: 18%;
     overflow: hidden;
 
 }
@@ -46,6 +47,7 @@ i{
 }
 img{
     width: 100%;
+    height: 100%;
 }
 .flechas{
     background-color: #0808088f;
