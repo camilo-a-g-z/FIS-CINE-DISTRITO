@@ -40,19 +40,18 @@
     height: auto;
     margin: 20px;
     width: 50%;
-    background-color: blue;
+    font-size: 20px;
+    color: #9b9b9b;
 }
 .funciones{
     height: auto;
     width: 50%;
     margin: 20px;
-    background-color: violet;
 }
 .teatro{
     height: 100%;
     width: auto;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 .teatro img{
@@ -69,5 +68,55 @@
     margin-bottom: 200px;
 }
 .texto{
-    
+    font-size: 20px;
+    color: #9b9b9b;
 }
+.select {
+    padding: 10px 30px 10px 10px;
+    margin: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    box-shadow: 0 2px 4px #000000;
+  }
+  
+  .select:focus {
+    outline: none;
+    border-color: #8f8f8f;
+    box-shadow: 0 2px 4px #000000;
+  }
+  
+  .select option {
+    background-color: #000000;
+    color: #333;
+  }
+  .boton {
+    padding: 10px 20px;
+    margin: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    color: #000000;
+    cursor: pointer;
+    box-shadow: 0 2px 4px #000000;
+  }
+  
+  .boton:hover {
+    background-color: #45a049;
+  }
+  
+  .boton:focus {
+    outline: none;
+    box-shadow: 0 2px 4px #000000;
+  }
+  
+  .boton:active {
+    background-color: #3e8e41;
+  }
+  .boton:active,
+.boton.selected {
+  background-color: #3e8e41;
+} 
