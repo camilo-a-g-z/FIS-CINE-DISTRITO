@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Empleado } from 'src/app/modelo/empleado.model';
 import { EmpleadoService } from 'src/app/servicios/empleado.service';
 
@@ -10,10 +11,19 @@ import { EmpleadoService } from 'src/app/servicios/empleado.service';
 export class EmpleadosAdminComponent implements OnInit {
   empleados: Empleado[];
 
-  constructor(private empleadoService: EmpleadoService) {}
+  constructor(
+    private empleadoService: EmpleadoService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.empleadoService.getEmpleados().subscribe((empleados) => {
       this.empleados = empleados;
     });
+  }
+  agregarEmpleado() {
+    this.router.navigate(['admin/editar-agregar', '0']);
+  }
+  editarEmpleado(empleado: Empleado) {
+    this.router.navigate(['admin/editar-agregar', empleado.correo]);
   }
 }

@@ -30,7 +30,7 @@ const routes: Routes = [
       { path: 'empleados', component: EmpleadosAdminComponent },
       { path: 'multiplex', component: MultiplexAdminComponent },
       { path: 'peliculas', component: PeliculasAdminComponent },
-      { path: 'editar-agregar', component: EditarAgregarClienteComponent },
+      { path: 'editar-agregar/:id', component: EditarAgregarClienteComponent },
     ],
   },
   { path: 'loginEmplado', component: LoginEmpleadoComponent },
