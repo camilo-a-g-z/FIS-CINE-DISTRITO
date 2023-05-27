@@ -13,8 +13,8 @@ import { FuncionesComponent } from './components/funciones/funciones.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'catalog', component: CatalogComponent,
-  children: [{path: 'funciones', component: FuncionesComponent}],},
+  { path: 'catalog', component: CatalogComponent},
+  {path: 'funciones', component: FuncionesComponent},
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   {

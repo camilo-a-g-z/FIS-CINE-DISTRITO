@@ -30,6 +30,7 @@ import { EmpleadosAdminComponent } from './components/empleados-admin/empleados-
 import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-admin.component';
 import { LoginEmpleadoComponent } from './components/login-empleado/login-empleado.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
+import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { FuncionesComponent } from './components/funciones/funciones.component';
     MultiplexAdminComponent,
     LoginEmpleadoComponent,
     FuncionesComponent,
+    CarruselComponent,
   ],
   imports: [
     BrowserModule,
