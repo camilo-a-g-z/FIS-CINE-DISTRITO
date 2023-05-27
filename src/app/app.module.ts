@@ -32,6 +32,7 @@ import { LoginEmpleadoComponent } from './components/login-empleado/login-emplea
 import { FuncionesComponent } from './components/funciones/funciones.component';
 import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { CarruselComponent } from './components/carrusel/carrusel.component';
     FuncionesComponent,
     EditarAgregarClienteComponent,
     CarruselComponent,
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,

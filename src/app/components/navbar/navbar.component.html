@@ -11,29 +11,30 @@
   <nav class="nav container" id="myTopnav">
     <ul class="nav__link nav__link--menu">
       <li class="titulo">
-        <a href="" class="nav__links">Cine Distrito</a>
+        <a href="" class="nav__links" routerLink = "/home">Cine Distrito</a>
       </li>
       <li class="nav__items">
-        <a href="" class="nav__links">Estrenos</a>
+        <a href="" class="nav__links" routerLink = "/home">Estrenos</a>
       </li>
       <li class="nav__items">
-        <a href="" class="nav__links">Confitería</a>
+        <a href="" class="nav__links" routerLink = "/home">Confitería</a>
       </li>
       <li class="nav__items">
-        <a href="" class="nav__links">Cuenta</a>
+        <a href="" class="nav__links" routerLink = "/home">Cuenta</a>
       </li>
       <li class="nav__items">
-        <a href="" class="nav__links">Carrito</a>
+        <a href="" class="nav__links" routerLink = "/carrito">Carrito</a>
       </li>
       <li class="nav__items" *ngIf="!isLogged">
-        <a routerLink="/login" class="nav__links">Loging</a>
+        <a routerLink="/login" class="nav__links">Inicia sesión</a>
       </li>
       <i *ngIf="isLogged" class="nav__items">Bienvenido {{ loggedUser }}</i>
       <li *ngIf="isLogged" class="nav__items">
         <a style="cursor: pointer" (click)="logOut()" class="nav-link">
-          <i class="fas fa-user-times">Salir</i>
+          <i class="fas fa-user-times">Cerrar sesión</i>
         </a>
       </li>
     </ul>
   </nav>
 </header>
+<router-outlet></router-outlet>
