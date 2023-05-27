@@ -10,11 +10,17 @@ import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-
 import { LoginEmpleadoComponent } from './components/login-empleado/login-empleado.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
+import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'catalog', component: CatalogComponent},
-  {path: 'funciones', component: FuncionesComponent},
+  {
+    path: 'catalog',
+    component: CatalogComponent,
+    children: [{ path: 'funciones', component: FuncionesComponent }],
+  },
+  { path: 'catalog', component: CatalogComponent },
+  { path: 'funciones', component: FuncionesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   {
@@ -24,6 +30,7 @@ const routes: Routes = [
       { path: 'empleados', component: EmpleadosAdminComponent },
       { path: 'multiplex', component: MultiplexAdminComponent },
       { path: 'peliculas', component: PeliculasAdminComponent },
+      { path: 'editar-agregar/:id', component: EditarAgregarClienteComponent },
     ],
   },
   { path: 'loginEmplado', component: LoginEmpleadoComponent },

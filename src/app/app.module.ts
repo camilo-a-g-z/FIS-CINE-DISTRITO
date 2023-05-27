@@ -30,6 +30,7 @@ import { EmpleadosAdminComponent } from './components/empleados-admin/empleados-
 import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-admin.component';
 import { LoginEmpleadoComponent } from './components/login-empleado/login-empleado.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
+import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 @NgModule({
@@ -50,6 +51,7 @@ import { CarruselComponent } from './components/carrusel/carrusel.component';
     MultiplexAdminComponent,
     LoginEmpleadoComponent,
     FuncionesComponent,
+    EditarAgregarClienteComponent,
     CarruselComponent,
   ],
   imports: [
