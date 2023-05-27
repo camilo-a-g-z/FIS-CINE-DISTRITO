@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from 'src/app/modelo/empleado.model';
+import { Multiplex } from 'src/app/modelo/multiplex.model';
 import { EmpleadoService } from 'src/app/servicios/empleado.service';
+import { MultiplexService } from 'src/app/servicios/multiplex.service';
 
 @Component({
   selector: 'app-editar-agregar-cliente',
@@ -11,6 +13,7 @@ import { EmpleadoService } from 'src/app/servicios/empleado.service';
 export class EditarAgregarClienteComponent implements OnInit {
   id: string;
   isEdit: boolean;
+  multiplexes: Multiplex[];
   empleado: null | Empleado = {
     apellido: '',
     cedula: '',
@@ -24,7 +27,8 @@ export class EditarAgregarClienteComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private empleadoService: EmpleadoService
+    private empleadoService: EmpleadoService,
+    private multiplexService: MultiplexService
   ) {}
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -38,6 +42,9 @@ export class EditarAgregarClienteComponent implements OnInit {
         this.empleado = empleado;
       });
     }
+    this.multiplexService.getMultiplexes().subscribe((multiplexes) => {
+      this.multiplexes = multiplexes;
+    });
   }
   guardar({ value, valid }: { value: Empleado; valid: boolean | null }) {
     if (valid) {

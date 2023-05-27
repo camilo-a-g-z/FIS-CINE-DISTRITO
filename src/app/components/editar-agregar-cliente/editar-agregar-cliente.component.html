@@ -175,6 +175,56 @@
                     Salario requerido
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="fechaContrato">Fecha de contrato</label>
+                  <input
+                    type="date"
+                    name="fechaContrato"
+                    class="form-control"
+                    #fechaContrato="ngModel"
+                    [(ngModel)]="empleado!.fechaContrato"
+                    [ngClass]="{
+                      'is-invalid':
+                        fechaContrato.errors && fechaContrato.touched
+                    }"
+                    required
+                  />
+                  <div
+                    [hidden]="!fechaContrato.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Fecha de contrato requerida
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="multiplex">Multiplex</label>
+                  <select
+                    name="multiplex"
+                    class="form-control"
+                    #multiplex="ngModel"
+                    [(ngModel)]="empleado!.multiplex"
+                    [ngClass]="{
+                      'is-invalid': multiplex.errors && multiplex.touched
+                    }"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Seleccione un multiplex
+                    </option>
+                    <option
+                      *ngFor="let multiplex of multiplexes"
+                      [value]="multiplex.id"
+                    >
+                      {{ multiplex.nombre }}
+                    </option>
+                  </select>
+                  <div
+                    [hidden]="!multiplex.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Multiplex requerido
+                  </div>
+                </div>
               </div>
             </div>
           </div>
