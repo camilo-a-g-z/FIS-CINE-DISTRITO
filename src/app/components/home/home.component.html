@@ -7,24 +7,6 @@
   rel="stylesheet"
 />
 <app-navbar></app-navbar>
-<div id="conteItemsCarrusel">
-  <div
-    *ngFor="let pelicula of peliculas; let i = index"
-    class="itemCarrusel"
-    id="itemCarrusel-{{ i + 1 }}"
-  >
-    <div class="tarjetaCarrusel" id="tarjetaCarrusel-{{ i + 1 }}">
-      <img src="/assets/promo.jpg" alt="" />
-    </div>
-    <div class="flechasCarrusel">
-      <a href="#itemCarrusel-{{ i }}" class="flechas">
-        <i>❮</i>
-      </a>
-      <a href="#itemCarrusel-{{ i + 2 }}" class="flechas">
-        <i>❯</i>
-      </a>
-    </div>
-  </div>
-</div>
+<app-carrusel></app-carrusel>
 <app-catalog></app-catalog>
 <app-footer></app-footer>

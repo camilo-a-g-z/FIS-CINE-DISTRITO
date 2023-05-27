@@ -31,6 +31,7 @@ import { MultiplexAdminComponent } from './components/multiplex-admin/multiplex-
 import { LoginEmpleadoComponent } from './components/login-empleado/login-empleado.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
 import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
+import { CarruselComponent } from './components/carrusel/carrusel.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { EditarAgregarClienteComponent } from './components/editar-agregar-clien
     LoginEmpleadoComponent,
     FuncionesComponent,
     EditarAgregarClienteComponent,
+    CarruselComponent,
   ],
   imports: [
     BrowserModule,
