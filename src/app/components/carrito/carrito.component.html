@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="body">
+    <div class="carrito">
+        <div class="titulo">
+            <h1>Carrito de compras</h1>
+        </div>
+        <div class="tabla">
+            <table id="tabla">
+                <thead>
+                    <tr>
+                        <th>Productos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aqui se describe la compra de producto culera que hiciste</td>
+                    </tr>
+                    <tr>
+                        <td>Aqui se describe la compra de producto culera que hiciste</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="boton" routerLink = "/pago">Pagar</button>
+    </div>
+    <div class="carrusel">
+        <app-carrusel></app-carrusel>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

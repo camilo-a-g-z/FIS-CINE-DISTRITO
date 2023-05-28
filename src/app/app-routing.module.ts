@@ -11,9 +11,12 @@ import { LoginEmpleadoComponent } from './components/login-empleado/login-emplea
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
 import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: 'catalog',
     component: CatalogComponent,
@@ -34,6 +37,8 @@ const routes: Routes = [
     ],
   },
   { path: 'loginEmplado', component: LoginEmpleadoComponent },
+  { path: 'carrito', component: CarritoComponent},
+  { path: 'pago', component: PagoComponent},
 ];
 
 @NgModule({
