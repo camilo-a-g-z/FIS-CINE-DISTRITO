@@ -33,6 +33,7 @@ import { FuncionesComponent } from './components/funciones/funciones.component';
 import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     EditarAgregarClienteComponent,
     CarruselComponent,
     CarritoComponent,
+    PagoComponent,
   ],
   imports: [
     BrowserModule,
