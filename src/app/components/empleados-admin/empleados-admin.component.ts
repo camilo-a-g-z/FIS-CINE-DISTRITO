@@ -26,4 +26,10 @@ export class EmpleadosAdminComponent implements OnInit {
   editarEmpleado(empleado: Empleado) {
     this.router.navigate(['admin/editar-agregar', empleado.correo]);
   }
+  eliminarEmpleado(empleado: Empleado) {
+    if (confirm('¿Está seguro de eliminar el empleado?')) {
+      this.empleadoService.eliminarEmpleado(empleado);
+      this.router.navigate(['/admin/empleados']);
+    }
+  }
 }
