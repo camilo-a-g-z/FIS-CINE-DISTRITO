@@ -44,6 +44,7 @@
                     }"
                     required
                     minlength="2"
+                    value="{{ empleado?.nombre }}"
                   />
                   <div
                     [hidden]="!nombre.errors?.['required']"
@@ -89,7 +90,7 @@
                   <label for="nombre">Email</label>
                   <input
                     type="email"
-                    name="email"
+                    name="correo"
                     class="form-control"
                     #email="ngModel"
                     [(ngModel)]="empleado!.correo"
@@ -122,8 +123,6 @@
                       'is-invalid': cedula.errors && cedula.touched
                     }"
                     required
-                    minlength="9"
-                    maxlength="9"
                   />
                   <div
                     [hidden]="!cedula.errors?.['required']"
@@ -144,8 +143,6 @@
                       'is-invalid': numTelefono.errors && numTelefono.touched
                     }"
                     required
-                    minlength="8"
-                    maxlength="8"
                   />
                   <div
                     [hidden]="!numTelefono.errors?.['required']"
@@ -182,7 +179,8 @@
                     name="fechaContrato"
                     class="form-control"
                     #fechaContrato="ngModel"
-                    [(ngModel)]="empleado!.fechaContrato"
+                    [ngModel]="empleado!.fechaContrato | date : 'yyyy-MM-dd'"
+                    (ngModelChange)="empleado!.fechaContrato = $event"
                     [ngClass]="{
                       'is-invalid':
                         fechaContrato.errors && fechaContrato.touched
@@ -208,12 +206,12 @@
                     }"
                     required
                   >
-                    <option value="" disabled selected>
-                      Seleccione un multiplex
+                    <option value="{{ empleado!.multiplex }}" selected>
+                      {{ empleado!.multiplex }}
                     </option>
                     <option
                       *ngFor="let multiplex of multiplexes"
-                      [value]="multiplex.id"
+                      [value]="multiplex.nombre"
                     >
                       {{ multiplex.nombre }}
                     </option>

@@ -37,7 +37,7 @@
           <td>{{ empleado.numTelefono }}</td>
           <td>{{ empleado.salario }}</td>
           <td>{{ empleado.fechaContrato }}</td>
-          <td>Editar / Borrar</td>
+          <td><a (click)="editarEmpleado(empleado)">Editar</a> / Borrar</td>
         </tr>
       </tbody>
     </table>
