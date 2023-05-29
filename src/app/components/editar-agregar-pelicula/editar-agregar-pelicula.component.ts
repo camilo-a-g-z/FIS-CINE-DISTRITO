@@ -51,6 +51,12 @@ export class EditarAgregarPeliculaComponent implements OnInit {
     if (this.id == '0') {
       //estamos agregando una nueva pelicula
       this.isEdit = false;
+      this.generos = this.generosDisponibles.map((genero) => {
+        return {
+          nombre: genero,
+          seleccionado: false,
+        };
+      });
     } else {
       //estamos editando una pelicula
       this.isEdit = true;

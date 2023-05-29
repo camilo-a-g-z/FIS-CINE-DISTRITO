@@ -123,6 +123,7 @@
                         type="checkbox"
                         [(ngModel)]="genero.seleccionado"
                         (change)="toggleSeleccion(genero)"
+                        [ngModelOptions]="{ standalone: true }"
                       />
                       {{ genero.nombre }}
                     </label>
