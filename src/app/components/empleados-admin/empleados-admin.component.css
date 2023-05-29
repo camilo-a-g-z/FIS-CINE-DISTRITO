@@ -48,6 +48,11 @@ td{
     padding: 15px;
     border-bottom: solid 1px #ffffff59;
     width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 tbody tr{
     cursor: pointer;
