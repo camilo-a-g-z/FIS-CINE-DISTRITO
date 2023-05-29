@@ -33,9 +33,14 @@ export class PeliculaService {
     );
     return this.peliculas;
   }
+  //se obtienen peliculas por estado, Activa, Inactiva, Proximamente
+  /*getPeliculasPorEstado(estado: string): Observable<Pelicula[]> {
+    // Obtenemos las peliculas por estado
+  }*/
 
   agregarPelicula(pelicula: Pelicula) {
-    this.peliculasColeccion.add(pelicula);
+    //se agrega pelicula especificando el id
+    this.peliculasColeccion.doc(pelicula.nombre).set(pelicula);
   }
 
   getPelicula(id: string) {

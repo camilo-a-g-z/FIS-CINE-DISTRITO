@@ -129,6 +129,111 @@
                     </label>
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="duración">Duración</label>
+                  <input
+                    type="number"
+                    name="duracion"
+                    class="form-control"
+                    #duracion="ngModel"
+                    [(ngModel)]="pelicula!.duracion"
+                    [ngClass]="{
+                      'is-invalid': duracion.errors && duracion.touched
+                    }"
+                    required
+                    value="{{ pelicula?.duracion }}"
+                  />
+                  <div
+                    [hidden]="!duracion.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Duración requerida
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="clasificacion">clasificacion</label>
+                  <select
+                    name="clasificacion"
+                    class="form-control"
+                    #clasificacion="ngModel"
+                    [(ngModel)]="pelicula!.clasificacionEdad"
+                    [ngClass]="{
+                      'is-invalid':
+                        clasificacion.errors && clasificacion.touched
+                    }"
+                    required
+                    value="{{ pelicula?.clasificacionEdad }}"
+                  >
+                    <option
+                      value="{{ pelicula?.clasificacionEdad }}"
+                      selected
+                      *ngIf="isEdit"
+                    >
+                      {{ pelicula?.clasificacionEdad }}
+                    </option>
+                    <option value="E">E</option>
+                    <option value="7+">7+</option>
+                    <option value="12+">12+</option>
+                    <option value="15+">15+</option>
+                    <option value="18+">18+</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="estado">Estado</label>
+                  <select
+                    name="estado"
+                    class="form-control"
+                    #estado="ngModel"
+                    [(ngModel)]="pelicula!.estado"
+                    [ngClass]="{
+                      'is-invalid': estado.errors && estado.touched
+                    }"
+                    required
+                    value="{{ pelicula?.estado }}"
+                  >
+                    <option
+                      value="{{ pelicula?.estado }}"
+                      selected
+                      *ngIf="isEdit"
+                    >
+                      {{ pelicula?.estado }}
+                    </option>
+                    <option value="Activa">Activa</option>
+                    <option value="Inactiva">Inactiva</option>
+                    <option value="Proximamente">Proximamente</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="urlPelicula"
+                    >Url Pelicula, ingrese un link de la imagen de la
+                    pelicula</label
+                  >
+                  <input
+                    type="text"
+                    name="urlPelicula"
+                    class="form-control"
+                    #urlPelicula="ngModel"
+                    [(ngModel)]="pelicula!.urlPelicula"
+                    [ngClass]="{
+                      'is-invalid': urlPelicula.errors && urlPelicula.touched
+                    }"
+                    required
+                    value="{{ pelicula?.urlPelicula }}"
+                  />
+                  <div
+                    [hidden]="!urlPelicula.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Url requerida
+                  </div>
+                  A continuación se muestra la imagen de la pelicula, si no se
+                  muestra la imagen, es porque la url no es correcta.
+                  <br />
+                  <img
+                    src="{{ pelicula?.urlPelicula }}"
+                    alt="Imagen de la pelicula"
+                  />
+                </div>
               </div>
             </div>
           </div>
