@@ -8,40 +8,43 @@
 />
 
 <div class="body">
-    <div class="fila">
-        <h1>Lista de peliculas</h1>
+  <div class="fila">
+    <h1>Lista de peliculas</h1>
+  </div>
+  <div class="container">
+    <div class="boton" (click)="agregarPelicula()">
+      <button>Nuevo</button>
     </div>
-    <div class="container">
-        <div class="boton">
-            <button>Nuevo</button>
-        </div>
-        <table id="tabla1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Sinopsis</th>
-                    <th>Director</th>
-                    <th>Genero</th>
-                    <th>Duración</th>
-                    <th>Clasificación</th>
-                    <th>Estado</th>
-                    <th>URL</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Aaaaaaaaaaaa</td>
-                    <td>aafdgdsssssgfdgfdgfffffffdfsgadfsssssssssgashdfajsfhjsdahfhgjrhsaghfashfjhdsafjhsdahgfjdsajhfhdsakjjskafcxnzmc,nvuiequewoqrufewiofakjsfvjhkasdhgfjsagfsdagfffgfgdaga</td>
-                    <td>fdsafasdfdasfafas</td>
-                    <td>fffffffff</td>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>a</td>
-                    <td>Editar / Borrar</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table id="tabla1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Sinopsis</th>
+          <th>Director</th>
+          <th>Genero</th>
+          <th>Duración</th>
+          <th>Clasificación</th>
+          <th>Estado</th>
+          <th>URL</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let pelicula of peliculas">
+        <tr>
+          <td>{{ pelicula.nombre }}</td>
+          <td>{{ pelicula.sinopsis }}</td>
+          <td>{{ pelicula.director }}</td>
+          <td>{{ pelicula.genero }}</td>
+          <td>{{ pelicula.duracion }}</td>
+          <td>{{ pelicula.clasificacionEdad }}</td>
+          <td>{{ pelicula.estado }}</td>
+          <td><img src="{{ pelicula.urlPelicula }}" /></td>
+          <td>
+            <a (click)="editarPelicula(pelicula)">Editar</a> /
+            <a (click)="eliminarPelicula(pelicula)">Borrar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

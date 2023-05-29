@@ -10,7 +10,6 @@ import { PeliculaService } from 'src/app/servicios/pelicula.service';
 export class HomeComponent implements OnInit {
   peliculas: Pelicula[];
   pelicula: Pelicula = {
-    id: '',
     nombre: '',
     clasificacionEdad: '',
     duracion: '',

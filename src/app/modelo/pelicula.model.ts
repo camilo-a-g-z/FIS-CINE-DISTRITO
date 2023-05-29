@@ -1,5 +1,4 @@
 export interface Pelicula {
-  id: string;
   nombre: string;
   clasificacionEdad: string;
   duracion: string;

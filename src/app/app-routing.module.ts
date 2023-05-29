@@ -13,6 +13,7 @@ import { FuncionesComponent } from './components/funciones/funciones.component';
 import { EditarAgregarClienteComponent } from './components/editar-agregar-cliente/editar-agregar-cliente.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { EditarAgregarPeliculaComponent } from './components/editar-agregar-pelicula/editar-agregar-pelicula.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,11 +35,15 @@ const routes: Routes = [
       { path: 'multiplex', component: MultiplexAdminComponent },
       { path: 'peliculas', component: PeliculasAdminComponent },
       { path: 'editar-agregar/:id', component: EditarAgregarClienteComponent },
+      {
+        path: 'editar-agregar-pelicula/:id',
+        component: EditarAgregarPeliculaComponent,
+      },
     ],
   },
   { path: 'loginEmplado', component: LoginEmpleadoComponent },
-  { path: 'carrito', component: CarritoComponent},
-  { path: 'pago', component: PagoComponent},
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'pago', component: PagoComponent },
 ];
 
 @NgModule({

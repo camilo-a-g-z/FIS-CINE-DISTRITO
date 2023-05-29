@@ -34,6 +34,7 @@ import { EditarAgregarClienteComponent } from './components/editar-agregar-clien
 import { CarruselComponent } from './components/carrusel/carrusel.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { EditarAgregarPeliculaComponent } from './components/editar-agregar-pelicula/editar-agregar-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { PagoComponent } from './components/pago/pago.component';
     CarruselComponent,
     CarritoComponent,
     PagoComponent,
+    EditarAgregarPeliculaComponent,
   ],
   imports: [
     BrowserModule,

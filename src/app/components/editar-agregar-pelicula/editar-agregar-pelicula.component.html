@@ -1,0 +1,139 @@
+<div class="body">
+  <form #peliculaForm="ngForm" (ngSubmit)="guardar(peliculaForm)">
+    <!--Botones -->
+    <section id="actions" class="py-4 mb-4 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <a routerLink="/" class="btn btn-light btn-block"
+              ><i class="fas fa-arrow-left"></i>Regresar al inicio</a
+            >
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-success btn-block">
+              <i class="fas fa-check"></i>Guardar pelicula
+            </button>
+          </div>
+          <div class="col-md-3">
+            <!--<a href="#" (click)="eliminar()" class="btn btn-danger btn-block"
+            ><i class="fas fa-trash"></i>Eliminar cliente</a
+          >-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="details">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h4>Editar pelicula</h4>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    class="form-control"
+                    #nombre="ngModel"
+                    [(ngModel)]="pelicula!.nombre"
+                    [ngClass]="{
+                      'is-invalid': nombre.errors && nombre.touched
+                    }"
+                    required
+                    minlength="2"
+                    value="{{ pelicula?.nombre }}"
+                  />
+                  <div
+                    [hidden]="!nombre.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Nombre requerido
+                  </div>
+                  <div
+                    [hidden]="!nombre.errors?.['minlength']"
+                    class="invalid-feedback"
+                  >
+                    Debe contener al menos 2 caracteres
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sinopsis">Sinopsis</label>
+                  <input
+                    type="text"
+                    name="sinopsis"
+                    class="form-control"
+                    #sinopsis="ngModel"
+                    [(ngModel)]="pelicula!.sinopsis"
+                    [ngClass]="{
+                      'is-invalid': sinopsis.errors && sinopsis.touched
+                    }"
+                    required
+                    minlength="2"
+                    value="{{ pelicula?.sinopsis }}"
+                  />
+                  <div
+                    [hidden]="!sinopsis.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Sinopsis requerida
+                  </div>
+                  <div
+                    [hidden]="!sinopsis.errors?.['minlength']"
+                    class="invalid-feedback"
+                  >
+                    Debe contener al menos 2 caracteres
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="director">Director</label>
+                  <input
+                    type="text"
+                    name="director"
+                    class="form-control"
+                    #director="ngModel"
+                    [(ngModel)]="pelicula!.director"
+                    [ngClass]="{
+                      'is-invalid': director.errors && director.touched
+                    }"
+                    required
+                    minlength="2"
+                    value="{{ pelicula?.director }}"
+                  />
+                  <div
+                    [hidden]="!director.errors?.['required']"
+                    class="invalid-feedback"
+                  >
+                    Director requerido
+                  </div>
+                  <div
+                    [hidden]="!director.errors?.['minlength']"
+                    class="invalid-feedback"
+                  >
+                    Debe contener al menos 2 caracteres
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="genero">Genero</label>
+                  <div *ngFor="let genero of generos">
+                    <label>
+                      <input
+                        type="checkbox"
+                        [(ngModel)]="genero.seleccionado"
+                        (change)="toggleSeleccion(genero)"
+                      />
+                      {{ genero.nombre }}
+                    </label>
+                    <span *ngIf="genero.seleccionado">✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+</div>

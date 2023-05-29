@@ -26,7 +26,7 @@ export class PeliculaService {
       map((cambios) => {
         return cambios.map((accion) => {
           const datos = accion.payload.doc.data() as Pelicula;
-          datos.id = accion.payload.doc.id;
+          datos.nombre = accion.payload.doc.id;
           return datos;
         });
       })
@@ -46,7 +46,7 @@ export class PeliculaService {
           return null;
         } else {
           const datos = accion.payload.data() as Pelicula;
-          datos.id = accion.payload.id;
+          datos.nombre = accion.payload.id;
           return datos;
         }
       })
@@ -55,12 +55,12 @@ export class PeliculaService {
   }
 
   modificarPelicula(pelicula: Pelicula) {
-    this.peliculasDoc = this.db.doc(`peliculas/${pelicula.id}`);
+    this.peliculasDoc = this.db.doc(`peliculas/${pelicula.nombre}`);
     this.peliculasDoc.update(pelicula);
   }
 
   eliminarPelicula(pelicula: Pelicula) {
-    this.peliculasDoc = this.db.doc(`peliculas/${pelicula.id}`);
+    this.peliculasDoc = this.db.doc(`peliculas/${pelicula.nombre}`);
     this.peliculasDoc.delete();
   }
 }
