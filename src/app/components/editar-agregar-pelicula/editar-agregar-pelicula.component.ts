@@ -69,7 +69,8 @@ export class EditarAgregarPeliculaComponent implements OnInit {
     }
   }
   guardar({ value, valid }: { value: Pelicula; valid: boolean | null }) {
-    if (valid) {
+    this.mostrarGeneros();
+    /*if (valid) {
       if (this.isEdit) {
         //modificar
         this.peliculaService.modificarPelicula(value);
@@ -80,10 +81,11 @@ export class EditarAgregarPeliculaComponent implements OnInit {
       this.router.navigate(['/admin/peliculas']);
     } else {
       console.log('Formulario no valido');
-    }
+    }*/
   }
   toggleSeleccion(genero: { nombre: string; seleccionado: boolean }): void {
-    genero.seleccionado = !genero.seleccionado;
+    genero.seleccionado = true;
+    console.log(genero);
   }
 
   mostrarGeneros(): void {
