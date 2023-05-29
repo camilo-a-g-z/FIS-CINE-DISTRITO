@@ -60,11 +60,17 @@ export class EditarAgregarPeliculaComponent implements OnInit {
     } else {
       //estamos editando una pelicula
       this.isEdit = true;
-      this.generos = this.generosDisponibles.map((genero) => {
-        return {
-          nombre: genero,
-          seleccionado: this.generosSeleccionados.includes(genero),
-        };
+      this.peliculaService.getPelicula(this.id).subscribe((pelicula) => {
+        this.pelicula = pelicula;
+        if (pelicula?.genero != null) {
+          this.generosSeleccionados = pelicula.genero;
+        }
+        this.generos = this.generosDisponibles.map((genero) => {
+          return {
+            nombre: genero,
+            seleccionado: this.generosSeleccionados.includes(genero),
+          };
+        });
       });
     }
   }
@@ -85,7 +91,6 @@ export class EditarAgregarPeliculaComponent implements OnInit {
   }
   toggleSeleccion(genero: { nombre: string; seleccionado: boolean }): void {
     genero.seleccionado = true;
-    console.log(genero);
   }
 
   obtenerGeneros() {
