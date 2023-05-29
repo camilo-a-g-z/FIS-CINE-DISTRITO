@@ -38,8 +38,8 @@
           <td>{{ empleado.salario }}</td>
           <td>{{ empleado.fechaContrato }}</td>
           <td>
-            <a (click)="editarEmpleado(empleado)">Editar</a> /
-            <a (click)="eliminarEmpleado(empleado)">Borrar</a>
+            <button (click)="editarEmpleado(empleado)">Editar</button>
+            <button (click)="eliminarEmpleado(empleado)">Borrar</button>
           </td>
         </tr>
       </tbody>

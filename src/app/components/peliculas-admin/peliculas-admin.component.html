@@ -40,8 +40,8 @@
           <td>{{ pelicula.estado }}</td>
           <td><img src="{{ pelicula.urlPelicula }}" /></td>
           <td>
-            <a (click)="editarPelicula(pelicula)">Editar</a> /
-            <a (click)="eliminarPelicula(pelicula)">Borrar</a>
+            <button (click)="editarPelicula(pelicula)">Editar</button>
+            <button (click)="eliminarPelicula(pelicula)">Borrar</button>
           </td>
         </tr>
       </tbody>
