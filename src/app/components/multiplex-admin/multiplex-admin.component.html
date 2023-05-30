@@ -8,49 +8,49 @@
 />
 
 <div class="body">
-    <div class="titulo">
-        <h1>Lista de Multiplex registrados</h1>
+  <div class="titulo">
+    <h1>Lista de Multiplex registrados</h1>
+  </div>
+  <div class="cuerpo">
+    <div class="container">
+      <div class="boton">
+        <button>Nuevo</button>
+      </div>
+      <table class="tabla" id="tabla1">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let multiplex of multiplexes" (click)="mostrar()">
+            <td>{{ multiplex.nombre }}</td>
+            <td>{{ multiplex.direccion }}</td>
+            <td>
+              <button>Editar</button>
+              <button>Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="cuerpo">
-        <div class="container">
-            <div class="boton">
-                <button>Nuevo</button>
-            </div>
-            <table class="tabla" id="tabla1">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Dirección</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Centro Comercial</td>
-                        <td>Dondetuputamadre</td>
-                        <td>
-                            <button>Editar</button>
-                            <button>Borrar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="multiplex">
-            <table class="tabla" id="tabla2">
-                <thead>
-                    <tr>
-                        <th>Salas</th>
-                        <th>Funciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="multiplex">
+      <table class="tabla" id="tabla2">
+        <thead>
+          <tr>
+            <th>Salas</th>
+            <th>Funciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
