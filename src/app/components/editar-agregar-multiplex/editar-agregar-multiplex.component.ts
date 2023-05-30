@@ -46,7 +46,7 @@ export class EditarAgregarMultiplexComponent implements OnInit {
         //agregar
         this.multiplexService.agregarMultiplex(value);
       }
-      this.router.navigate(['/admin/multiplexes']);
+      this.router.navigate(['/admin/multiplex']);
     } else {
       console.log('Formulario no valido');
     }

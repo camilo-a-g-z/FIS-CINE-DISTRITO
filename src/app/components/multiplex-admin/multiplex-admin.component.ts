@@ -73,4 +73,12 @@ export class MultiplexAdminComponent implements OnInit {
   agregarMultiplex() {
     this.router.navigate(['admin/editar-agregar-multiplex', '0']);
   }
+
+  editarMultiplex(multiplex: Multiplex) {
+    this.router.navigate(['admin/editar-agregar-multiplex', multiplex.nombre]);
+  }
+
+  eliminarMultiplex(multiplex: Multiplex) {
+    this.multiplexService.eliminarMultiplex(multiplex);
+  }
 }
