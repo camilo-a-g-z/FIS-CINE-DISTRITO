@@ -24,6 +24,7 @@ export class SalasService {
         map((cambios) => {
           return cambios.map((accion) => {
             const datos = accion.payload.doc.data() as Sala;
+            datos.id = accion.payload.doc.id;
             return datos;
           });
         })
@@ -45,17 +46,15 @@ export class SalasService {
     }
   }
 
-  getSala(numero: number, multiplex: string) {
-    let doc = this.db
-      .doc(`multiplex/${multiplex}`)
-      .collection('sala')
-      .doc(numero.toString());
+  getSala(id: string, multiplex: string) {
+    let doc = this.db.doc(`multiplex/${multiplex}`).collection('sala').doc(id);
     let sala = doc.snapshotChanges().pipe(
       map((accion) => {
         if (accion.payload.exists === false) {
           return null;
         } else {
           const datos = accion.payload.data() as Sala;
+          datos.id = accion.payload.id;
           return datos;
         }
       })
@@ -67,7 +66,7 @@ export class SalasService {
     let doc = this.db
       .doc(`multiplex/${multiplex}`)
       .collection('sala')
-      .doc(sala.numero.toString());
+      .doc(sala.id);
     doc.update(sala);
   }
 
@@ -75,7 +74,7 @@ export class SalasService {
     let doc = this.db
       .doc(`multiplex/${multiplex}`)
       .collection('sala')
-      .doc(sala.numero.toString());
+      .doc(sala.id);
     doc.delete();
   }
 }
