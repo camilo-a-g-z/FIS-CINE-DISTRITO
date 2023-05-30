@@ -14,6 +14,7 @@ import { EditarAgregarClienteComponent } from './components/editar-agregar-clien
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { EditarAgregarPeliculaComponent } from './components/editar-agregar-pelicula/editar-agregar-pelicula.component';
+import { EditarAgregarMultiplexComponent } from './components/editar-agregar-multiplex/editar-agregar-multiplex.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'editar-agregar-pelicula/:id',
         component: EditarAgregarPeliculaComponent,
+      },
+      {
+        path: 'editar-agregar-multiplex/:id',
+        component: EditarAgregarMultiplexComponent,
       },
     ],
   },

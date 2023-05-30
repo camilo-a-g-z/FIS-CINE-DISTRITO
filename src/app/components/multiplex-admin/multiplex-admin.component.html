@@ -14,7 +14,7 @@
   <div class="cuerpo">
     <div class="container">
       <div class="boton">
-        <button>Nuevo</button>
+        <button (click)="agregarMultiplex()">Nuevo</button>
       </div>
       <table class="tabla" id="tabla1">
         <thead>
@@ -52,7 +52,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let sala of salas">
+          <tr *ngFor="let sala of salas" (click)="mostrartFunciones(sala)">
             <td>{{ sala.numero }}</td>
             <td>{{ sala.sillas.length }}</td>
             <td>
@@ -75,8 +75,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
+          <tr *ngFor="let funcion of funciones">
+            <td>{{ funcion.id }}</td>
             <td>
               <button>Editar</button>
               <button>Borrar</button>
