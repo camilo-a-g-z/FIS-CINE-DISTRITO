@@ -41,7 +41,7 @@
     </div>
     <div class="multiplex">
       <div class="boton">
-        <button>Nuevo</button>
+        <button (click)="agregarSala()">Nuevo</button>
       </div>
       <table class="tabla" id="tabla2">
         <thead>
@@ -56,8 +56,8 @@
             <td>{{ sala.numero }}</td>
             <td>{{ sala.sillas.length }}</td>
             <td>
-              <button>Editar</button>
-              <button>Borrar</button>
+              <button (click)="editarSala(sala)">Editar</button>
+              <button (click)="eliminarSala(sala)">Borrar</button>
             </td>
           </tr>
         </tbody>

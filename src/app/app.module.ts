@@ -36,6 +36,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { EditarAgregarPeliculaComponent } from './components/editar-agregar-pelicula/editar-agregar-pelicula.component';
 import { EditarAgregarMultiplexComponent } from './components/editar-agregar-multiplex/editar-agregar-multiplex.component';
+import { EditarAgregarSalaComponent } from './components/editar-agregar-sala/editar-agregar-sala.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EditarAgregarMultiplexComponent } from './components/editar-agregar-mul
     PagoComponent,
     EditarAgregarPeliculaComponent,
     EditarAgregarMultiplexComponent,
+    EditarAgregarSalaComponent,
   ],
   imports: [
     BrowserModule,

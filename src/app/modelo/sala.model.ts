@@ -1,4 +1,4 @@
-export interface Sala{
-    numero:number
-    sillas:Array<string>
+export interface Sala {
+  numero: number;
+  sillas: string[];
 }

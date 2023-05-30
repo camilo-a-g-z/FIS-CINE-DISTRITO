@@ -81,4 +81,24 @@ export class MultiplexAdminComponent implements OnInit {
   eliminarMultiplex(multiplex: Multiplex) {
     this.multiplexService.eliminarMultiplex(multiplex);
   }
+
+  agregarSala() {
+    this.router.navigate([
+      'admin/editar-agregar-sala',
+      '0',
+      this.selectedMultiplex.nombre,
+    ]);
+  }
+
+  editarSala(sala: Sala) {
+    this.router.navigate([
+      'admin/editar-agregar-sala',
+      sala.numero,
+      this.selectedMultiplex.nombre,
+    ]);
+  }
+
+  eliminarSala(sala: Sala) {
+    this.salasService.eliminarSala(sala, this.selectedMultiplex.nombre);
+  }
 }
