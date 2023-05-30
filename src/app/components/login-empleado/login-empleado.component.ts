@@ -15,7 +15,7 @@ export class LoginEmpleadoComponent implements OnInit {
   ngOnInit(): void {
     this.loginService.getAuth().subscribe((auth) => {
       if (auth) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/admin']);
       }
     });
   }

@@ -34,9 +34,38 @@ export class PeliculaService {
     return this.peliculas;
   }
   //se obtienen peliculas por estado, Activa, Inactiva, Proximamente
-  /*getPeliculasPorEstado(estado: string): Observable<Pelicula[]> {
+  getPeliculasPorEstado(estado: string): Observable<Pelicula[]> {
     // Obtenemos las peliculas por estado
-  }*/
+    let peliculasAux: Observable<(Pelicula | undefined)[]>;
+    peliculasAux = this.peliculasColeccion.snapshotChanges().pipe(
+      map((cambios) => {
+        return cambios.map((accion) => {
+          const datos = accion.payload.doc.data() as Pelicula;
+          datos.nombre = accion.payload.doc.id;
+          if (accion.payload.doc.data().estado == estado) {
+            return datos;
+          } else {
+            return undefined;
+          }
+        });
+      })
+    );
+    if (typeof peliculasAux == 'undefined') {
+    } else {
+      //bug de typescript
+      this.peliculas = peliculasAux as Observable<Pelicula[]>;
+    }
+    //quitamos todos los undefined
+    this.peliculas = this.peliculas.pipe(
+      map((peliculas) => {
+        return peliculas.filter((pelicula) => {
+          return pelicula != undefined;
+        });
+      })
+    );
+
+    return this.peliculas;
+  }
 
   agregarPelicula(pelicula: Pelicula) {
     //se agrega pelicula especificando el id

@@ -1,37 +1,27 @@
-<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+  rel="stylesheet"
+/>
 
 <div class="body">
-    <div class="titulo">
-        <h1>Funciones del mes</h1>
+  <div class="titulo">
+    <h1>Funciones del mes</h1>
+  </div>
+  <div class="cards" *ngFor="let pelicula of peliculas">
+    <div class="image">
+      <img src="{{ pelicula.urlPelicula }}" />
     </div>
-    <div class="cards">
-        <div class="image">
-            <img src="/assets/prueba1.jpg">
-
-        </div>
-        <div class="title">
-            <h1>Las flipantes aventuras de Mariano y Lucas</h1>
-
-        </div>
-        <div class="desc">
-            <p>Aqui se describe la peli de mierda que veras en cine :D</p>
-            <button class = "boton" routerLink = "/funciones">Ver funciones</button>
-        </div>
+    <div class="title">
+      <h1>{{ pelicula.nombre }}</h1>
     </div>
-    <div class="cards">
-        <div class="image">
-            <img src="/assets/prueba2.jpeg">
-
-        </div>
-        <div class="title">
-            <h1>Guardianes de mi sufrimiento</h1>
-
-        </div>
-        <div class="desc">
-            <p>Aqui se describe la segunda peli de mierda que veras en cine :D</p>
-            <button class = "boton">Ver funciones</button>
-        </div>
+    <div class="desc">
+      <p>{{ pelicula.sinopsis }}</p>
+      <button class="boton" routerLink="/funciones">Ver funciones</button>
     </div>
-    <router-outlet></router-outlet>
+  </div>
+  <router-outlet></router-outlet>
 </div>

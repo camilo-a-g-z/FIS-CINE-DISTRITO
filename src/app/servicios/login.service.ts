@@ -35,8 +35,6 @@ export class LoginService {
         this.empleadoService.getEmpleado(cedula).subscribe((empleado) => {
           if (empleado) {
             this.isLoggedUser = true;
-            alert('Bienvenido ' + empleado.nombre);
-            this.router.navigate(['/admin']);
           } else {
             this.isLoggedUser = false;
             alert('Credenciales incorrectas');

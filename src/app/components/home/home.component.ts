@@ -8,23 +8,6 @@ import { PeliculaService } from 'src/app/servicios/pelicula.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  peliculas: Pelicula[];
-  pelicula: Pelicula = {
-    nombre: '',
-    clasificacionEdad: '',
-    duracion: '',
-    director: '',
-    sinopsis: '',
-    urlPelicula: '',
-    estado: '',
-    genero: [],
-  };
-  cantPeliculas: number;
-
-  constructor(private peliculaServicio: PeliculaService) {}
-  ngOnInit(): void {
-    this.peliculaServicio.getPeliculas().subscribe((peliculas) => {
-      this.peliculas = peliculas;
-    });
-  }
+  constructor() {}
+  ngOnInit(): void {}
 }
