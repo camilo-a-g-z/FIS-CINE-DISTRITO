@@ -34,7 +34,7 @@ export class EditarAgregarSalaComponent implements OnInit {
       //estamos editando una sala
       this.isEdit = true;
       this.salaService
-        .getSala(this.salaParameter, this.multiplexParameter)
+        .getSala(parseInt(this.salaParameter), this.multiplexParameter)
         .subscribe((sala) => {
           this.sala = sala;
           if (this.sala != null) {
@@ -50,8 +50,6 @@ export class EditarAgregarSalaComponent implements OnInit {
     value.sillas = this.crearPuestos();
     if (valid) {
       if (this.isEdit) {
-        //se mantiene el id
-        value.id = this.sala?.id;
         //modificar
         this.salaService.modificarSala(value, this.multiplexParameter);
       } else {

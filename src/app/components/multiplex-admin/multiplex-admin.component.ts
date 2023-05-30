@@ -93,7 +93,7 @@ export class MultiplexAdminComponent implements OnInit {
   editarSala(sala: Sala) {
     this.router.navigate([
       'admin/editar-agregar-sala',
-      sala.id,
+      sala.numero.toString(),
       this.selectedMultiplex.nombre,
     ]);
   }
