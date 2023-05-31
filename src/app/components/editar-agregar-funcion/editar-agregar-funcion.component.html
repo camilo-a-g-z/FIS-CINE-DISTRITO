@@ -50,7 +50,7 @@
                 <div class="form-group">
                   <label for="peliculas">Pelicula</label>
                   <select
-                    name="peliculas"
+                    name="pelicula"
                     class="form-control"
                     #pelicula="ngModel"
                     [(ngModel)]="funcion!.peliculaID"
@@ -81,11 +81,74 @@
                   >
                     <option
                       *ngFor="let empleado of empleados"
-                      [value]="empleado.nombre"
+                      [value]="empleado.correo"
                     >
                       {{ empleado.nombre }}
                     </option>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label for="fecha">Fecha</label>
+                  <input
+                    type="number"
+                    name="anioI"
+                    class="form-control"
+                    #anioI="ngModel"
+                    [(ngModel)]="anio"
+                    [ngClass]="{
+                      'is-invalid': anioI.errors && anioI.touched
+                    }"
+                    placeholder="Año"
+                    required
+                  />
+                  <input
+                    type="number"
+                    name="mesI"
+                    class="form-control"
+                    #mesI="ngModel"
+                    [(ngModel)]="mes"
+                    [ngClass]="{
+                      'is-invalid': mesI.errors && mesI.touched
+                    }"
+                    placeholder="Mes"
+                    required
+                  />
+                  <input
+                    type="number"
+                    name="diaI"
+                    class="form-control"
+                    #diaI="ngModel"
+                    [(ngModel)]="dia"
+                    [ngClass]="{
+                      'is-invalid': diaI.errors && diaI.touched
+                    }"
+                    placeholder="Dia"
+                    required
+                  />
+                  <input
+                    type="number"
+                    name="horaI"
+                    class="form-control"
+                    #horaI="ngModel"
+                    [(ngModel)]="hora"
+                    [ngClass]="{
+                      'is-invalid': horaI.errors && horaI.touched
+                    }"
+                    placeholder="Hora"
+                    required
+                  />
+                  <input
+                    type="number"
+                    name="minutoI"
+                    class="form-control"
+                    #minutoI="ngModel"
+                    [(ngModel)]="minuto"
+                    [ngClass]="{
+                      'is-invalid': minutoI.errors && minutoI.touched
+                    }"
+                    placeholder="Minuto"
+                    required
+                  />
                 </div>
               </div>
             </div>
