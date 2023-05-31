@@ -101,4 +101,30 @@ export class MultiplexAdminComponent implements OnInit {
   eliminarSala(sala: Sala) {
     this.salasService.eliminarSala(sala, this.selectedMultiplex.nombre);
   }
+
+  agregarFuncion() {
+    this.router.navigate([
+      'admin/editar-agregar-funcion',
+      '0',
+      this.selectedMultiplex.nombre,
+      this.selectedSala.numero.toString(),
+    ]);
+  }
+
+  editarFuncion(funcion: Funcion) {
+    this.router.navigate([
+      'admin/editar-agregar-funcion',
+      funcion.id,
+      this.selectedMultiplex.nombre,
+      this.selectedSala.numero.toString(),
+    ]);
+  }
+
+  eliminarFuncion(funcion: Funcion) {
+    /*this.funcionService.eliminarFuncion(
+      funcion,
+      this.selectedMultiplex.nombre,
+      this.selectedSala.numero
+    );*/
+  }
 }

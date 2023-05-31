@@ -1,1 +1,97 @@
-
+<div class="body">
+  <form #funcionForm="ngForm" (ngSubmit)="guardar(funcionForm)">
+    <!--Botones -->
+    <section id="actions" class="py-4 mb-4 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <a routerLink="/" class="btn btn-light btn-block"
+              ><i class="fas fa-arrow-left"></i>Regresar al inicio</a
+            >
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-success btn-block">
+              <i class="fas fa-check"></i>Guardar Funcion
+            </button>
+          </div>
+          <div class="col-md-3">
+            <!--<a href="#" (click)="eliminar()" class="btn btn-danger btn-block"
+            ><i class="fas fa-trash"></i>Eliminar cliente</a
+          >-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="details">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h4>Editar Funcion</h4>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="estado">Estado</label>
+                  <select
+                    name="estado"
+                    class="form-control"
+                    #estado="ngModel"
+                    [(ngModel)]="funcion!.estado"
+                    [ngClass]="{
+                      'is-invalid': estado.errors && estado.touched
+                    }"
+                    required
+                  >
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="peliculas">Pelicula</label>
+                  <select
+                    name="peliculas"
+                    class="form-control"
+                    #pelicula="ngModel"
+                    [(ngModel)]="funcion!.peliculaID"
+                    [ngClass]="{
+                      'is-invalid': pelicula.errors && pelicula.touched
+                    }"
+                    required
+                  >
+                    <option
+                      *ngFor="let pelicula of peliculas"
+                      [value]="pelicula.nombre"
+                    >
+                      {{ pelicula.nombre }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="empleado">Empleado</label>
+                  <select
+                    name="empleado"
+                    class="form-control"
+                    #empleado="ngModel"
+                    [(ngModel)]="funcion!.empleadoID"
+                    [ngClass]="{
+                      'is-invalid': empleado.errors && empleado.touched
+                    }"
+                    required
+                  >
+                    <option
+                      *ngFor="let empleado of empleados"
+                      [value]="empleado.nombre"
+                    >
+                      {{ empleado.nombre }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+</div>

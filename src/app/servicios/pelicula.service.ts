@@ -63,7 +63,6 @@ export class PeliculaService {
         });
       })
     );
-
     return this.peliculas;
   }
 
