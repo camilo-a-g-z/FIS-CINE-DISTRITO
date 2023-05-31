@@ -29,4 +29,14 @@ export class FuncionService {
     );
     return funciones;
   }
+
+  agregarFuncion(funcion: Funcion, numero: number, multiplex: string) {
+    let doc = this.db
+      .doc(`multiplex/${multiplex}`)
+      .collection('sala')
+      .doc(numero.toString())
+      .collection('funcion')
+      .doc(funcion.id)
+      .set(funcion);
+  }
 }

@@ -96,13 +96,20 @@ export class EditarAgregarFuncionComponent implements OnInit {
     this.funcion.sillas = this.generarSillas(this.auxSala);
 
     console.log(this.funcion);
+    console.log(valid);
     if (valid) {
       if (this.isEdit) {
+        console.log('funcion modificada');
         //modificar
         //this.funcionService.modificarFuncion(value);
       } else {
         //agregar
-        //this.funcionService.agregarFuncion(value);
+        this.funcionService.agregarFuncion(
+          this.funcion,
+          parseInt(this.salaParameter),
+          this.multiplexParameter
+        );
+        console.log('funcion agregada');
       }
       //this.router.navigate(['/admin/funciones']);
     } else {

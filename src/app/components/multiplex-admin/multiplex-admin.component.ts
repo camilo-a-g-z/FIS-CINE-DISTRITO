@@ -105,9 +105,9 @@ export class MultiplexAdminComponent implements OnInit {
   agregarFuncion() {
     this.router.navigate([
       'admin/editar-agregar-funcion',
-      '0',
       this.selectedMultiplex.nombre,
       this.selectedSala.numero.toString(),
+      '0',
     ]);
   }
 
