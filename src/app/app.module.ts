@@ -37,6 +37,7 @@ import { PagoComponent } from './components/pago/pago.component';
 import { EditarAgregarPeliculaComponent } from './components/editar-agregar-pelicula/editar-agregar-pelicula.component';
 import { EditarAgregarMultiplexComponent } from './components/editar-agregar-multiplex/editar-agregar-multiplex.component';
 import { EditarAgregarSalaComponent } from './components/editar-agregar-sala/editar-agregar-sala.component';
+import { EditarAgregarFuncionComponent } from './components/editar-agregar-funcion/editar-agregar-funcion.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { EditarAgregarSalaComponent } from './components/editar-agregar-sala/edi
     EditarAgregarPeliculaComponent,
     EditarAgregarMultiplexComponent,
     EditarAgregarSalaComponent,
+    EditarAgregarFuncionComponent,
   ],
   imports: [
     BrowserModule,

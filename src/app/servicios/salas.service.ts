@@ -37,14 +37,15 @@ export class SalasService {
 
   agregarSala(sala: Sala, multiplex: string) {
     if (this.mService.existeMultiplex(multiplex)) {
-      let colec = this.db
+      //se agrega sala especificando el id
+      this.db
         .collection('multiplex')
         .doc(multiplex)
-        .collection('sala');
-      colec.add(sala);
+        .collection('sala')
+        .doc(sala.numero.toString())
+        .set(sala);
     }
   }
-
   getSala(numero: number, multiplex: string) {
     let doc = this.db
       .doc(`multiplex/${multiplex}`)
