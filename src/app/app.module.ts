@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -72,6 +72,7 @@ import { EditarAgregarFuncionComponent } from './components/editar-agregar-funci
     AngularFireModule.initializeApp(environment.firestore, 'cine-distrito'),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    RouterModule.forRoot([]),
     FormsModule,
   ],
   providers: [LoginService, PeliculaService, ClienteService],

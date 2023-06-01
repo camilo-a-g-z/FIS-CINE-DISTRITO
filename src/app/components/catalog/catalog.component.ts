@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
 import { PeliculaService } from 'src/app/servicios/pelicula.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css'],
+  
+  
 })
 export class CatalogComponent implements OnInit {
   peliculas: Pelicula[];
