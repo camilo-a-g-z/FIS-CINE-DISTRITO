@@ -8,18 +8,23 @@
             <table id="tabla">
                 <thead>
                     <tr>
-                        <th>Productos</th>
+                        <th>Funcion</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Aqui se describen los productos culeros comprados</td>
-                    </tr>
-                    <tr>
-                        <td>Aqui se describen los productos culeros comprados</td>
+                    <tr *ngIf = "cargado">
+                        <div>
+                            <p style = "font-size: 20px; font-weight: bold;">Pelicula: {{compra.nomPeli}}</p>
+                            <p style = "font-size: 15px; font-weight: bold;">{{compra.multiplex}}</p>
+                            <p style="font-size: 13px;font-weight: bold;">hora de la funcion</p>
+                            <p style="font-size: 12px;">{{compra.hora}}</p>
+                            <p style="font-size: 13px;font-weight: bold;">Sillas Seleccionadas</p>
+                            <p style="font-size: 12px;">{{stringSillas}}</p>
+                        </div>
                     </tr>
                 </tbody>
             </table>
+            <p *ngIf = "cargado"><b>TOTAL:</b> {{compra.total}}</p>
         </div>
         <button class="boton" routerLink = "/home">Terminar</button>
     </div>
