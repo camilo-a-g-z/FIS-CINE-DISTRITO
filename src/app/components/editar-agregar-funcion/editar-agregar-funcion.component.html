@@ -43,6 +43,9 @@
                     }"
                     required
                   >
+                    <option value="{{ funcion!.estado }}" selected>
+                      {{ funcion!.estado }}
+                    </option>
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                   </select>
@@ -59,6 +62,9 @@
                     }"
                     required
                   >
+                    <option value="{{ funcion!.peliculaID }}" selected>
+                      {{ funcion!.peliculaID }}
+                    </option>
                     <option
                       *ngFor="let pelicula of peliculas"
                       [value]="pelicula.nombre"
@@ -79,6 +85,10 @@
                     }"
                     required
                   >
+                    <option value="{{ funcion!.empleadoID }}" selected>
+                      {{ funcion!.empleadoID }}
+                    </option>
+
                     <option
                       *ngFor="let empleado of empleados"
                       [value]="empleado.correo"
