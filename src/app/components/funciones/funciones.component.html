@@ -1,48 +1,62 @@
 <app-navbar></app-navbar>
 <div class="body">
-    <div class="image">
-        <img src="/assets/prueba1.jpg">
+  <div class="image">
+    <img src="{{ pelicula.urlPelicula }}" />
+  </div>
+  <div class="container">
+    <div class="titulo">
+      {{ pelicula.nombre }}
     </div>
-    <div class="container">
-        <div class="titulo">
-            Aqui va el titulo de la peli
-        </div>
-        <div class="desc">
-            Aqui la descripcion, datos, etc
-        </div>
-        <div class="funciones">
-            <p class="texto">Escoge tu multiplex:</p>
-            <select class="select" name="" id=""> 
-                <option value="">CC 1</option>
-                <option value="">CC 2</option>
-                <option value="">CC 3</option>
-            </select>
-            <p class="texto">Escoge la fecha de la función que deseas:</p>
-            <button class="boton">Jueves 01</button>
-            <button class="boton">Viernes 02</button>
-            <button class="boton">Sábado 03</button>
-            <p class="texto">Escoge tu silla:</p>
-            <p class="texto">
-            General:
-                <select class="select" name="" id=""> 
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                </select>
-            Preferencial:
-                <select class="select" name="" id=""> 
-                    <option value="">41</option>
-                    <option value="">42</option>
-                    <option value="">43</option>
-                </select>
-            </p>
-        </div>
-        <div class="teatro">
-            <img src="/assets/sillas.png">
-        </div>
+    <div class="desc">
+      {{ pelicula.sinopsis }}
+      <br />
+      Duracion: {{ pelicula.duracion }}
+      <br />
+      Generos: {{ pelicula.genero }}
     </div>
-    <div class="carrusel">
-        <app-carrusel></app-carrusel>
+    <div class="funciones">
+      <p class="texto">Escoge tu multiplex:</p>
+      <select
+        class="select"
+        name="multiplexS"
+        #multiplexS="ngModel"
+        [(ngModel)]="multiplex"
+        (change)="buscarFunciones()"
+      >
+        <option value="" selected>Selecciona el multiplex</option>
+        <option
+          *ngFor="let multiplex of multiplexes"
+          value="{{ multiplex.nombre }}"
+        >
+          {{ multiplex.nombre }}
+        </option>
+      </select>
+      <p class="texto">Escoge la fecha de la función que deseas:</p>
+      <button class="boton">Jueves 01</button>
+      <button class="boton">Viernes 02</button>
+      <button class="boton">Sábado 03</button>
+      <p class="texto">Escoge tu silla:</p>
+      <p class="texto">
+        General:
+        <select class="select" name="" id="">
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+        </select>
+        Preferencial:
+        <select class="select" name="" id="">
+          <option value="">41</option>
+          <option value="">42</option>
+          <option value="">43</option>
+        </select>
+      </p>
     </div>
+    <div class="teatro">
+      <img src="/assets/sillas.png" />
+    </div>
+  </div>
+  <div class="carrusel">
+    <app-carrusel></app-carrusel>
+  </div>
 </div>
 <app-footer></app-footer>

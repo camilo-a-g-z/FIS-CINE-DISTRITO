@@ -34,6 +34,28 @@ export class SalasService {
       return new Observable<Sala[]>();
     }
   }
+  //obtener todas las salas de un multiplex
+  getSalas(multiplex: string): Observable<Sala[]> {
+    // Obtenemos las peliculas
+    if (this.mService.existeMultiplex(multiplex)) {
+      let colec = this.db
+        .collection('multiplex')
+        .doc(multiplex)
+        .collection('sala');
+      let salas = colec.snapshotChanges().pipe(
+        map((cambios) => {
+          return cambios.map((accion) => {
+            const datos = accion.payload.doc.data() as Sala;
+            return datos;
+          });
+        })
+      );
+      return salas;
+    } else {
+      //devolvemos un observable vacio
+      return new Observable<Sala[]>();
+    }
+  }
 
   agregarSala(sala: Sala, multiplex: string) {
     if (this.mService.existeMultiplex(multiplex)) {

@@ -27,7 +27,7 @@ const routes: Routes = [
     children: [{ path: 'funciones', component: FuncionesComponent }],
   },
   { path: 'catalog', component: CatalogComponent },
-  { path: 'funciones', component: FuncionesComponent },
+  { path: 'funciones/:pelicula', component: FuncionesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   {

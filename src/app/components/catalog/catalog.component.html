@@ -13,7 +13,7 @@
       <p>{{ pelicula.sinopsis }}</p>
     </div>
     <div class="boton">
-      <button routerLink="/funciones">Ver funciones</button>
+      <button (click)="verFunciones(pelicula)">Ver funciones</button>
     </div>
   </div>
   <router-outlet></router-outlet>

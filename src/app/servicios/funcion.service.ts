@@ -80,4 +80,20 @@ export class FuncionService {
       .doc(funcion.id)
       .delete();
   }
+  //se recive un multiplex y una pelicula y se retorna un arreglo de funciones buscando en todas las salas del multiplex
+  getFuncionesPelicula(multiplex: string, pelicula: string) {
+    let funciones: Funcion[] = [];
+    this.salaService.getSalas(multiplex).subscribe((salas) => {
+      salas.forEach((sala) => {
+        this.getFunciones(sala.numero, multiplex).subscribe((funcionesSala) => {
+          funcionesSala.forEach((funcion) => {
+            if (funcion.peliculaID == pelicula) {
+              funciones.push(funcion);
+            }
+          });
+        });
+      });
+    });
+    return funciones;
+  }
 }
