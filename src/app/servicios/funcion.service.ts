@@ -163,4 +163,6 @@ export class FuncionService {
       });
     });
   }
+
+  //funcion para actualizar funcion
 }
