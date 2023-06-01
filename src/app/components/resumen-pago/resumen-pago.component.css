@@ -1,0 +1,89 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.body{
+    width: 100%;
+    height: 90%;
+    font-family: 'Rubik';
+    color: #9b9b9b;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.titulo{
+    margin-top: 40px;
+}
+.titulo h1{
+    font-size: 50px;
+    font-family: 'Monoton';
+    color: #1f1e1ea1;
+    margin: 5px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.carrito{
+    align-self: center;
+    background: #ffffff;
+    padding: 40px 0;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 40%;
+    margin: 2%;
+    height: auto;
+    text-align: center;
+}
+.boton{
+    font-family: 'Rubik';
+    background: -webkit-linear-gradient(to bottom, #434343, #000000);
+    background: linear-gradient(to top, #434343, #000000);
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    color: #ffffff;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.tabla{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+#tabla{
+    color: #000000;
+    font-size: 12px;
+    border-collapse: collapse;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+#tabla td{
+    word-wrap: break-word;
+}
+thead{
+    background: #1f202080;
+}
+th{
+    padding: 20px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+td{
+    padding: 15px;
+    border-bottom: solid 1px #ffffff59;
+    width: 100px;
+    border-bottom: 2px solid #49454567;
+}
+.carrusel{
+    height: fit-content;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 5%;
+}
