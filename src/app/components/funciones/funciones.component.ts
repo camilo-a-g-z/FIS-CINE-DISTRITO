@@ -165,6 +165,8 @@ export class FuncionesComponent implements OnInit {
       alert('No puede seleccionar mas sillas de las disponibles');
       this.sillasSeleccionadas.pop();
       this.cantidadSillasSeleccionadas--;
+      let sillaInput = document.getElementById(silla.silla) as HTMLInputElement
+      sillaInput.checked = false
     } else {
       this.sillasSeleccionadas.push(silla.silla);
       silla.ocupada = true;
@@ -180,5 +182,7 @@ export class FuncionesComponent implements OnInit {
     );
     this.compraService.reservarBoletas();
     this.router.navigate(['/pago']);
+    this.compraService.asignarDatosCompra(this.funcion,this.sillasSeleccionadas,this.sala,this.multiplex)
+    console.log(this.compraService.compra)
   }
 }

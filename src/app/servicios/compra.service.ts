@@ -8,9 +8,26 @@ import { FuncionService } from './funcion.service';
   providedIn: 'root',
 })
 export class CompraService {
-  compra: Compra;
-
   constructor(private funcionService: FuncionService) {}
+
+  compra: Compra = {
+    nomPeli: '',
+    sillas: [],
+    total: 0,
+    multiplex: '',
+    hora: '',
+    sala: {
+      numero: 0,
+      sillas: [],
+    },
+    funcion: {
+      empleadoID: '',
+      estado: '',
+      id: '',
+      peliculaID: '',
+      sillas: [],
+    },
+  };
 
   asignarDatosCompra(
     funcion: Funcion,
