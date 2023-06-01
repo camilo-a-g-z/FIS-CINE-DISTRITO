@@ -78,8 +78,8 @@
           <tr *ngFor="let funcion of funciones">
             <td>{{ funcion.id }}</td>
             <td>
-              <button>Editar</button>
-              <button>Borrar</button>
+              <button (click)="editarFuncion(funcion)">Editar</button>
+              <button (click)="eliminarFuncion(funcion)">Borrar</button>
             </td>
           </tr>
         </tbody>

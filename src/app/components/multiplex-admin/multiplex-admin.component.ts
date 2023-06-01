@@ -28,7 +28,7 @@ export class MultiplexAdminComponent implements OnInit {
     empleadoID: '',
     estado: '',
     peliculaID: '',
-    sillas: new Map<string, string>(),
+    sillas: [],
   };
   constructor(
     private multiplexService: MultiplexService,
@@ -105,26 +105,26 @@ export class MultiplexAdminComponent implements OnInit {
   agregarFuncion() {
     this.router.navigate([
       'admin/editar-agregar-funcion',
-      '0',
       this.selectedMultiplex.nombre,
       this.selectedSala.numero.toString(),
+      '0',
     ]);
   }
 
   editarFuncion(funcion: Funcion) {
     this.router.navigate([
       'admin/editar-agregar-funcion',
-      funcion.id,
       this.selectedMultiplex.nombre,
       this.selectedSala.numero.toString(),
+      funcion.id,
     ]);
   }
 
   eliminarFuncion(funcion: Funcion) {
-    /*this.funcionService.eliminarFuncion(
+    this.funcionService.eliminarFuncion(
       funcion,
-      this.selectedMultiplex.nombre,
-      this.selectedSala.numero
-    );*/
+      parseInt(this.selectedSala.numero.toString()),
+      this.selectedMultiplex.nombre
+    );
   }
 }

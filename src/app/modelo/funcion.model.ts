@@ -3,5 +3,5 @@ export interface Funcion {
   empleadoID: string;
   estado: string;
   peliculaID: string;
-  sillas: Map<string, string>;
+  sillas: string[];
 }
