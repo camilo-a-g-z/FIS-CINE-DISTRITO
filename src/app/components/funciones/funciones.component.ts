@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Funcion } from 'src/app/modelo/funcion.model';
 import { Multiplex } from 'src/app/modelo/multiplex.model';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
+import { Sala } from 'src/app/modelo/sala.model';
 import { FuncionService } from 'src/app/servicios/funcion.service';
 import { MultiplexService } from 'src/app/servicios/multiplex.service';
 import { PeliculaService } from 'src/app/servicios/pelicula.service';
@@ -26,6 +27,20 @@ export class FuncionesComponent implements OnInit {
   id: string;
   multiplexes: Multiplex[];
   multiplex: string;
+  funciones: Funcion[];
+  funcion: Funcion = {
+    empleadoID: '',
+    estado: '',
+    id: '',
+    peliculaID: '',
+    sillas: [],
+  };
+  sillas: string[] = [];
+  sillasMostrar: { silla: string; ocupada: boolean }[] = [];
+  sala: Sala = {
+    numero: 0,
+    sillas: [],
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -52,11 +67,75 @@ export class FuncionesComponent implements OnInit {
 
   //buscar funciones
   buscarFunciones() {
-    console.log(this.multiplex);
-    let funciones: Funcion[] = this.funcionService.getFuncionesPelicula(
+    this.funciones = this.funcionService.getFuncionesPeliculaActivas(
       this.multiplex,
       this.id
     );
-    console.log(funciones);
+    console.log(this.funciones);
+  }
+  //recibe un formato HH-MM_DD-MM-YYYY y lo convierte a un string con formato local
+  convertirFecha(fecha: string | undefined) {
+    if (fecha) {
+      let fechaArray = fecha.split('_');
+      let hora = fechaArray[0].split('-');
+      let dia = fechaArray[1].split('-');
+      let fechaString =
+        dia[0] + '/' + dia[1] + '/' + dia[2] + ' ' + hora[0] + ':' + hora[1];
+      return fechaString;
+    } else {
+      return '';
+    }
+  }
+  //recive una funcion y busca la sala en el multiplex
+  buscarSala(funcion: Funcion) {
+    this.funcionService.getSalaFuncion(funcion, this.multiplex);
+    this.funcion = funcion;
+  }
+
+  mostrarSillas() {
+    this.sala = this.funcionService.sala;
+    console.log(this.sala);
+    if (this.sala == null) {
+      this.sala = {
+        numero: 0,
+        sillas: [],
+      };
+    }
+    let idFuncion: string = '';
+    if (this.funcion.id != null) {
+      idFuncion = this.funcion.id;
+    }
+    //obtenemos la funcion observable
+    this.funcionService
+      .getFuncionObservable(idFuncion, this.sala.numero, this.multiplex)
+      .subscribe((funcion) => {
+        if (funcion) {
+          this.sillas = [];
+          this.sillasMostrar = [];
+          if (this.sala) {
+            for (let i = 0; i < this.sala.sillas.length; i++) {
+              this.sillas.push((i + 1).toString());
+            }
+            funcion.sillas.forEach((silla) => {
+              this.sillasMostrar.push({
+                silla: silla,
+                ocupada: true,
+              });
+            });
+            this.sillas.forEach((silla) => {
+              if (!this.sillasMostrar.find((s) => s.silla == silla)) {
+                this.sillasMostrar.push({
+                  silla: silla,
+                  ocupada: false,
+                });
+              }
+            });
+          }
+        }
+      });
+  }
+
+  toggleSeleccion(silla: { silla: string; ocupada: boolean }): void {
+    silla.ocupada = true;
   }
 }

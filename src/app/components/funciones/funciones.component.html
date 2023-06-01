@@ -23,7 +23,6 @@
         [(ngModel)]="multiplex"
         (change)="buscarFunciones()"
       >
-        <option value="" selected>Selecciona el multiplex</option>
         <option
           *ngFor="let multiplex of multiplexes"
           value="{{ multiplex.nombre }}"
@@ -32,31 +31,34 @@
         </option>
       </select>
       <p class="texto">Escoge la fecha de la función que deseas:</p>
-      <button class="boton">Jueves 01</button>
-      <button class="boton">Viernes 02</button>
-      <button class="boton">Sábado 03</button>
-      <p class="texto">Escoge tu silla:</p>
-      <p class="texto">
-        General:
-        <select class="select" name="" id="">
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
-        Preferencial:
-        <select class="select" name="" id="">
-          <option value="">41</option>
-          <option value="">42</option>
-          <option value="">43</option>
-        </select>
-      </p>
+      <button
+        class="boton"
+        *ngFor="let funcion of funciones"
+        (click)="buscarSala(funcion)"
+      >
+        {{ convertirFecha(funcion.id) }}
+      </button>
+      <button class="boton" (click)="mostrarSillas()">Escoge tu silla</button>
+      <div class="checkbox-container">
+        <div class="checkbox" *ngFor="let silla of sillasMostrar">
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="silla.ocupada"
+              (change)="toggleSeleccion(silla)"
+              [ngModelOptions]="{ standalone: true }"
+            />
+            {{ silla.silla }}
+          </label>
+        </div>
+      </div>
+      <div class="teatro">
+        <img src="/assets/sillas.png" />
+      </div>
     </div>
-    <div class="teatro">
-      <img src="/assets/sillas.png" />
+    <div class="carrusel">
+      <app-carrusel></app-carrusel>
     </div>
   </div>
-  <div class="carrusel">
-    <app-carrusel></app-carrusel>
-  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
