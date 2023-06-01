@@ -38,6 +38,20 @@
       >
         {{ convertirFecha(funcion.id) }}
       </button>
+      <div>
+        <label>Seleccione cantidad de sillas</label>
+        <select
+          class="select"
+          name="cantidadSillasS"
+          #cantidadSillasS="ngModel"
+          [(ngModel)]="cantidadSillas"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
       <button class="boton" (click)="mostrarSillas()">Escoge tu silla</button>
       <div class="checkbox-container">
         <div

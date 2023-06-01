@@ -42,6 +42,8 @@ export class FuncionesComponent implements OnInit {
     sillas: [],
   };
   sillasSeleccionadas: string[] = [];
+  cantidadSillas: number = 0;
+  cantidadSillasSeleccionadas: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -148,8 +150,14 @@ export class FuncionesComponent implements OnInit {
   }
 
   toggleSeleccion(silla: { silla: string; ocupada: boolean }): void {
-    this.sillasSeleccionadas.push(silla.silla);
-    console.log(this.sillasSeleccionadas);
-    silla.ocupada = true;
+    this.cantidadSillasSeleccionadas++;
+    if (this.cantidadSillasSeleccionadas > this.cantidadSillas) {
+      alert('No puede seleccionar mas sillas de las disponibles');
+      this.sillasSeleccionadas.pop();
+      this.cantidadSillasSeleccionadas--;
+    } else {
+      this.sillasSeleccionadas.push(silla.silla);
+      silla.ocupada = true;
+    }
   }
 }
