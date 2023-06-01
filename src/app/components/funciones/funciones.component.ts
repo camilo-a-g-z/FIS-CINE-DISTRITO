@@ -14,6 +14,7 @@ import { PeliculaService } from 'src/app/servicios/pelicula.service';
   styleUrls: ['./funciones.component.css'],
 })
 export class FuncionesComponent implements OnInit {
+  funcionSeleccionada:HTMLButtonElement
   pelicula: Pelicula = {
     nombre: '',
     sinopsis: '',
@@ -91,6 +92,11 @@ export class FuncionesComponent implements OnInit {
   buscarSala(funcion: Funcion) {
     this.funcionService.getSalaFuncion(funcion, this.multiplex);
     this.funcion = funcion;
+    if(this.funcionSeleccionada){
+      this.funcionSeleccionada.classList.remove("boton-seleccionado")
+    }
+    this.funcionSeleccionada = document.getElementById(funcion.id!) as HTMLButtonElement
+    this.funcionSeleccionada.classList.add("boton-seleccionado")
   }
 
   mostrarSillas() {
