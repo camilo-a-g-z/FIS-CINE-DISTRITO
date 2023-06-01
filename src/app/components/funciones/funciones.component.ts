@@ -4,6 +4,7 @@ import { Funcion } from 'src/app/modelo/funcion.model';
 import { Multiplex } from 'src/app/modelo/multiplex.model';
 import { Pelicula } from 'src/app/modelo/pelicula.model';
 import { Sala } from 'src/app/modelo/sala.model';
+import { CompraService } from 'src/app/servicios/compra.service';
 import { FuncionService } from 'src/app/servicios/funcion.service';
 import { MultiplexService } from 'src/app/servicios/multiplex.service';
 import { PeliculaService } from 'src/app/servicios/pelicula.service';
@@ -51,7 +52,8 @@ export class FuncionesComponent implements OnInit {
     private router: Router,
     private peliculaService: PeliculaService,
     private multiplexService: MultiplexService,
-    private funcionService: FuncionService
+    private funcionService: FuncionService,
+    private compraService: CompraService
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -163,6 +165,8 @@ export class FuncionesComponent implements OnInit {
       alert('No puede seleccionar mas sillas de las disponibles');
       this.sillasSeleccionadas.pop();
       this.cantidadSillasSeleccionadas--;
+      let sillaInput = document.getElementById(silla.silla) as HTMLInputElement
+      sillaInput.checked = false
     } else {
       this.sillasSeleccionadas.push(silla.silla);
       silla.ocupada = true;
@@ -171,5 +175,7 @@ export class FuncionesComponent implements OnInit {
 
   comprar() {
     this.router.navigate(['/pago']);
+    this.compraService.asignarDatosCompra(this.funcion,this.sillasSeleccionadas,this.sala,this.multiplex)
+    console.log(this.compraService.compra)
   }
 }

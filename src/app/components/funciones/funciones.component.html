@@ -67,6 +67,7 @@
               [(ngModel)]="silla.ocupada"
               (change)="toggleSeleccion(silla)"
               [ngModelOptions]="{ standalone: true }"
+              [id] = "silla.silla"
             />
             {{ silla.silla }}
           </label>
