@@ -40,7 +40,7 @@
       </button>
       <button class="boton" (click)="mostrarSillas()">Escoge tu silla</button>
       <div class="checkbox-container">
-        <div class="checkbox" *ngFor="let silla of sillasMostrar">
+        <div class="checkbox"  style= "flex-basis: 20%" *ngFor="let silla of sillasMostrar">
           <label>
             <input
               type="checkbox"
@@ -52,13 +52,10 @@
           </label>
         </div>
       </div>
-      <div class="teatro">
-        <img src="/assets/sillas.png" />
-      </div>
-    </div>
-    <div class="carrusel">
-      <app-carrusel></app-carrusel>
     </div>
   </div>
-  <app-footer></app-footer>
+  <div class="carrusel">
+    <app-carrusel></app-carrusel>
+  </div>
 </div>
+<app-footer></app-footer>
