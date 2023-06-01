@@ -113,13 +113,24 @@ export class FuncionesComponent implements OnInit {
           this.sillas = [];
           this.sillasMostrar = [];
           if (this.sala) {
-            for (let i = 0; i < this.sala.sillas.length; i++) {
-              this.sillas.push((i + 1).toString());
+            this.sillas = this.sala.sillas;
+            for (let i = 0; i < this.sillas.length; i++) {
+              if (funcion.sillas[i] == 'libre') {
+                this.sillasMostrar.push({
+                  silla: this.sillas[i],
+                  ocupada: false,
+                });
+              } else {
+                this.sillasMostrar.push({
+                  silla: this.sillas[i],
+                  ocupada: true,
+                });
+              }
             }
-            funcion.sillas.forEach((silla) => {
+            /*funcion.sillas.forEach((silla) => {
               this.sillasMostrar.push({
                 silla: silla,
-                ocupada: true,
+                ocupada: false,
               });
             });
             this.sillas.forEach((silla) => {
@@ -129,7 +140,7 @@ export class FuncionesComponent implements OnInit {
                   ocupada: false,
                 });
               }
-            });
+            });*/
           }
         }
       });
