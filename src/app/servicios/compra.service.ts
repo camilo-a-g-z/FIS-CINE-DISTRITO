@@ -35,9 +35,8 @@ export class CompraService {
     sala: Sala,
     multiplex: string
   ) {
-    console.log(multiplex);
-    //let lista = funcion.id?.split('_')[0].split('-')!;
-    //this.compra.hora = lista[0] + lista[1];
+    let lista = funcion.id?.split('_')[0].split('-')!;
+    this.compra.hora = lista[0] + lista[1];
     this.compra.multiplex = multiplex;
     this.compra.nomPeli = funcion.peliculaID;
     this.compra.sala = sala;
@@ -53,6 +52,44 @@ export class CompraService {
       let pos = this.compra.sala.sillas.indexOf(silla);
       this.compra.funcion.sillas[pos] = 'reservada';
     }
+    //se actualiza la funcion
+    this.funcionService.actualizarFuncion(
+      this.compra.funcion,
+      this.compra.sala.numero,
+      this.compra.multiplex
+    );
+    console.log(this.compra.funcion.sillas);
+  }
+
+  comprarBoletas() {
+    //se toman las sillas seleccionadas y se cambia su estado a ocupado
+    //se busca la posicion en el arreglo de sillas de la sala y se cambia el estado a ocupado en la funcion
+    for (let silla of this.compra.sillas) {
+      let pos = this.compra.sala.sillas.indexOf(silla);
+      this.compra.funcion.sillas[pos] = 'ocupado';
+    }
+    //se actualiza la funcion
+    this.funcionService.actualizarFuncion(
+      this.compra.funcion,
+      this.compra.sala.numero,
+      this.compra.multiplex
+    );
+    console.log(this.compra.funcion.sillas);
+  }
+
+  cancelarCompra() {
+    //se toman las sillas seleccionadas y se cambia su estado a ocupado
+    //se busca la posicion en el arreglo de sillas de la sala y se cambia el estado a ocupado en la funcion
+    for (let silla of this.compra.sillas) {
+      let pos = this.compra.sala.sillas.indexOf(silla);
+      this.compra.funcion.sillas[pos] = 'libre';
+    }
+    //se actualiza la funcion
+    this.funcionService.actualizarFuncion(
+      this.compra.funcion,
+      this.compra.sala.numero,
+      this.compra.multiplex
+    );
     console.log(this.compra.funcion.sillas);
   }
 }
