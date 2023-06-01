@@ -40,13 +40,27 @@
       </button>
       <button class="boton" (click)="mostrarSillas()">Escoge tu silla</button>
       <div class="checkbox-container">
-        <div class="checkbox"  style= "flex-basis: 20%" *ngFor="let silla of sillasMostrar">
-          <label>
+        <div
+          class="checkbox"
+          style="flex-basis: 20%"
+          *ngFor="let silla of sillasMostrar; let i = index"
+        >
+          <label *ngIf="funcion.sillas[i] == 'libre'">
             <input
               type="checkbox"
               [(ngModel)]="silla.ocupada"
               (change)="toggleSeleccion(silla)"
               [ngModelOptions]="{ standalone: true }"
+            />
+            {{ silla.silla }}
+          </label>
+          <label *ngIf="funcion.sillas[i] != 'libre'">
+            <input
+              type="checkbox"
+              [(ngModel)]="silla.ocupada"
+              (change)="toggleSeleccion(silla)"
+              [ngModelOptions]="{ standalone: true }"
+              disabled
             />
             {{ silla.silla }}
           </label>

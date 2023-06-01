@@ -41,6 +41,7 @@ export class FuncionesComponent implements OnInit {
     numero: 0,
     sillas: [],
   };
+  sillasSeleccionadas: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -147,6 +148,8 @@ export class FuncionesComponent implements OnInit {
   }
 
   toggleSeleccion(silla: { silla: string; ocupada: boolean }): void {
+    this.sillasSeleccionadas.push(silla.silla);
+    console.log(this.sillasSeleccionadas);
     silla.ocupada = true;
   }
 }
