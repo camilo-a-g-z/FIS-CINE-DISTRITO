@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CompraService } from 'src/app/servicios/compra.service';
 
 @Component({
   selector: 'app-pago',
@@ -7,11 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./pago.component.css'],
 })
 export class PagoComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private compraService: CompraService) {}
   cancelar() {
+    this.compraService.cancelarCompra();
     this.router.navigate(['/']);
   }
   terminar() {
+    this.compraService.comprarBoletas();
     this.router.navigate(['/resumenPago']);
   }
 }
