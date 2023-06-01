@@ -38,6 +38,7 @@ import { EditarAgregarPeliculaComponent } from './components/editar-agregar-peli
 import { EditarAgregarMultiplexComponent } from './components/editar-agregar-multiplex/editar-agregar-multiplex.component';
 import { EditarAgregarSalaComponent } from './components/editar-agregar-sala/editar-agregar-sala.component';
 import { EditarAgregarFuncionComponent } from './components/editar-agregar-funcion/editar-agregar-funcion.component';
+import { ResumenPagoComponent } from './components/resumen-pago/resumen-pago.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { EditarAgregarFuncionComponent } from './components/editar-agregar-funci
     EditarAgregarMultiplexComponent,
     EditarAgregarSalaComponent,
     EditarAgregarFuncionComponent,
+    ResumenPagoComponent,
   ],
   imports: [
     BrowserModule,

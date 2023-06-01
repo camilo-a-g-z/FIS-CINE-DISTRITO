@@ -17,6 +17,7 @@ import { EditarAgregarPeliculaComponent } from './components/editar-agregar-peli
 import { EditarAgregarMultiplexComponent } from './components/editar-agregar-multiplex/editar-agregar-multiplex.component';
 import { EditarAgregarSalaComponent } from './components/editar-agregar-sala/editar-agregar-sala.component';
 import { EditarAgregarFuncionComponent } from './components/editar-agregar-funcion/editar-agregar-funcion.component';
+import { ResumenPagoComponent } from './components/resumen-pago/resumen-pago.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,9 +57,10 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'loginEmplado', component: LoginEmpleadoComponent },
+  { path: 'loginEmpleado', component: LoginEmpleadoComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'pago', component: PagoComponent },
+  { path: 'resumenPago', component: ResumenPagoComponent },
 ];
 
 @NgModule({

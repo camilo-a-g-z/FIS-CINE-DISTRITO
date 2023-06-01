@@ -34,6 +34,7 @@
       <button
         class="boton"
         *ngFor="let funcion of funciones"
+        [id]="funcion.id"
         (click)="buscarSala(funcion)"
       >
         {{ convertirFecha(funcion.id) }}
@@ -52,6 +53,7 @@
           <option value="4">4</option>
         </select>
       </div>
+      <br />
       <button class="boton" (click)="mostrarSillas()">Escoge tu silla</button>
       <div class="checkbox-container">
         <div

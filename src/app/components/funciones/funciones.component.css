@@ -101,6 +101,9 @@
   cursor: pointer;
   box-shadow: 0 2px 4px #000000;
 }
+.boton-seleccionado{
+  background-color:  #3e8e41;
+}
 .boton:hover{
   background-color: #3e8e41;
 }
