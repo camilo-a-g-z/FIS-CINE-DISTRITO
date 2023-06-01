@@ -14,7 +14,7 @@ import { PeliculaService } from 'src/app/servicios/pelicula.service';
   styleUrls: ['./funciones.component.css'],
 })
 export class FuncionesComponent implements OnInit {
-  funcionSeleccionada:HTMLButtonElement
+  funcionSeleccionada: HTMLButtonElement;
   pelicula: Pelicula = {
     nombre: '',
     sinopsis: '',
@@ -94,11 +94,13 @@ export class FuncionesComponent implements OnInit {
   buscarSala(funcion: Funcion) {
     this.funcionService.getSalaFuncion(funcion, this.multiplex);
     this.funcion = funcion;
-    if(this.funcionSeleccionada){
-      this.funcionSeleccionada.classList.remove("boton-seleccionado")
+    if (this.funcionSeleccionada) {
+      this.funcionSeleccionada.classList.remove('boton-seleccionado');
     }
-    this.funcionSeleccionada = document.getElementById(funcion.id!) as HTMLButtonElement
-    this.funcionSeleccionada.classList.add("boton-seleccionado")
+    this.funcionSeleccionada = document.getElementById(
+      funcion.id!
+    ) as HTMLButtonElement;
+    this.funcionSeleccionada.classList.add('boton-seleccionado');
   }
 
   mostrarSillas() {
@@ -165,5 +167,9 @@ export class FuncionesComponent implements OnInit {
       this.sillasSeleccionadas.push(silla.silla);
       silla.ocupada = true;
     }
+  }
+
+  comprar() {
+    this.router.navigate(['/pago']);
   }
 }

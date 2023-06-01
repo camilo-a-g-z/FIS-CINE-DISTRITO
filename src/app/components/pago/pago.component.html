@@ -1,57 +1,49 @@
 <app-navbar></app-navbar>
 <div class="body">
-    <div class="pago">
-        <div class="titulo">
-            <h1>Completa la compra</h1>
+  <div class="pago">
+    <div class="titulo">
+      <h1>Completa la compra</h1>
+    </div>
+    <form>
+      <div class="form">
+        <h1>Ingresa tu tarjeta de crédito</h1>
+        <div class="grupo">
+          <input type="text" name="" class="form-control" required />
+          <label for="">Nombre del titular</label>
         </div>
-        <form>
-            <div class="form">
-              <h1>Ingresa tu tarjeta de crédito</h1>
-              <div class="grupo">
-                <input
-                  type="text"
-                  name=""
-                  class="form-control"
-                  required
-                />
-                <label for="">Nombre del titular</label>
-            </div>
-            <div class="grupo">
-                <input
-                  type=""
-                  name=""
-                  class="form-control"
-                  required
-                />
-                <label for="">Número de la tarjeta</label>
-            </div>
-            <div class="grupo1">
-                <div class="grupo">
-                    <input
-                    type=""
-                    name=""
-                    class="form-control"
-                    required
-                    />
-                    <label for="">Fecha de expiración</label>
-                </div>
-                <div class="grupo">
-                    <input
-                    type=""
-                    name=""
-                    class="form-control"
-                    required
-                    />
-                    <label for="">Código de seguridad</label>
-                </div>
-            </div>
-              <input class="boton" type="" routerLink = "/resumenPago" value="Terminar pago"/>
-            </div>
-          </form>
-    </div>
-    <div class="carrusel">
-        <app-carrusel></app-carrusel>
-    </div>
-    <router-outlet></router-outlet>
+        <div class="grupo">
+          <input type="" name="" class="form-control" required />
+          <label for="">Número de la tarjeta</label>
+        </div>
+        <div class="grupo1">
+          <div class="grupo">
+            <input type="" name="" class="form-control" required />
+            <label for="">Fecha de expiración</label>
+          </div>
+          <div class="grupo">
+            <input type="" name="" class="form-control" required />
+            <label for="">Código de seguridad</label>
+          </div>
+        </div>
+        <input
+          class="boton"
+          type=""
+          (click)="terminar()"
+          routerLink="/resumenPago"
+          value="Terminar pago"
+        />
+        <input
+          class="boton"
+          type=""
+          (click)="cancelar()"
+          value="Cancelar pago"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="carrusel">
+    <app-carrusel></app-carrusel>
+  </div>
+  <router-outlet></router-outlet>
 </div>
 <app-footer></app-footer>
