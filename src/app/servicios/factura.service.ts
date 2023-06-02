@@ -34,13 +34,9 @@ export class FacturaService {
   }
 
   agregarFacturaNueva(factura:Factura) {
-    let correo = this.loginService.getAuth().subscribe((auth)=>{
-      if(auth){
-        return auth.email;
-      }else return "";
-    })
-    let colec = this.db.collection("facturas",ref => ref.where("correo","==",correo))
+    let colec = this.db.collection("facturas")
     colec.add(factura);
+    console.log("enviado")
   }
 
   getFactura( id:string) {

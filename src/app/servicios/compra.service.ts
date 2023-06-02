@@ -89,6 +89,8 @@ export class CompraService {
         multiplex: this.compra.multiplex,
         sala: this.compra.sala.numero,
       },
+      sillas:this.compra.sillas,
+      total:this.compra.total
     };
     this.loginService.getAuth().subscribe((usuario) => {
       if (usuario) {

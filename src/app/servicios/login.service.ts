@@ -45,10 +45,18 @@ export class LoginService {
   }
 
   getAuth() {
-    return this.authService.authState.pipe(map((auth) => auth)); //el map es para que devuelva un booleano
+    return this.authService.authState.pipe(map((auth) => {
+      if (auth){
+        this.isLoggedUser = true
+        return auth
+      }else{
+        return false
+      }
+    })); //el map es para que devuelva un booleano
   }
 
   logout() {
+    this.isLoggedUser = false
     this.authService.signOut();
   }
 

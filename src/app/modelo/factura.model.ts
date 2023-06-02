@@ -6,4 +6,6 @@ export interface Factura{
         multiplex:string
         sala:number
     }
+    sillas:Array<string>
+    total:number
 }

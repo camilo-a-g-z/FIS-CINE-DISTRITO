@@ -18,6 +18,7 @@ import { EditarAgregarMultiplexComponent } from './components/editar-agregar-mul
 import { EditarAgregarSalaComponent } from './components/editar-agregar-sala/editar-agregar-sala.component';
 import { EditarAgregarFuncionComponent } from './components/editar-agregar-funcion/editar-agregar-funcion.component';
 import { ResumenPagoComponent } from './components/resumen-pago/resumen-pago.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
     children: [{ path: 'funciones', component: FuncionesComponent }],
   },
   { path: 'catalog', component: CatalogComponent },
-  { path: 'funciones/:pelicula', component: FuncionesComponent },
+  { path: 'funciones/:pelicula', component: FuncionesComponent ,canActivate:[authGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   {
@@ -58,9 +59,9 @@ const routes: Routes = [
     ],
   },
   { path: 'loginEmpleado', component: LoginEmpleadoComponent },
-  { path: 'carrito', component: CarritoComponent },
-  { path: 'pago', component: PagoComponent },
-  { path: 'resumenPago', component: ResumenPagoComponent },
+  { path: 'carrito', component: CarritoComponent ,canActivate:[authGuard]},
+  { path: 'pago', component: PagoComponent,canActivate:[authGuard] },
+  { path: 'resumenPago', component: ResumenPagoComponent,canActivate:[authGuard] },
 ];
 
 @NgModule({
