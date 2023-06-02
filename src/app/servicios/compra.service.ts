@@ -3,12 +3,19 @@ import { Compra } from '../modelo/compra.model';
 import { Funcion } from '../modelo/funcion.model';
 import { Sala } from '../modelo/sala.model';
 import { FuncionService } from './funcion.service';
+import { FacturaService } from './factura.service';
+import { Factura } from '../modelo/factura.model';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompraService {
-  constructor(private funcionService: FuncionService) {}
+  constructor(
+    private funcionService: FuncionService,
+    private facturaService: FacturaService,
+    private loginService: LoginService
+  ) {}
 
   compra: Compra = {
     nomPeli: '',
@@ -74,7 +81,21 @@ export class CompraService {
       this.compra.sala.numero,
       this.compra.multiplex
     );
-    console.log(this.compra.funcion.sillas);
+    let factura: Factura = {
+      correo: '',
+      fecha: new Date(),
+      funcion: {
+        idFuncion: this.compra.funcion.id || '',
+        multiplex: this.compra.multiplex,
+        sala: this.compra.sala.numero,
+      },
+    };
+    this.loginService.getAuth().subscribe((usuario) => {
+      if (usuario) {
+        factura.correo = usuario.email || '';
+        this.facturaService.agregarFacturaNueva(factura);
+      }
+    });
   }
 
   cancelarCompra() {
