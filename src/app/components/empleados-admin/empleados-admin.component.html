@@ -1,0 +1,48 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+  rel="stylesheet"
+/>
+
+<div class="body">
+  <div class="fila">
+    <h1>Lista de empleados</h1>
+  </div>
+  <div class="container">
+    <div class="boton">
+      <button (click)="agregarEmpleado()">Nuevo</button>
+    </div>
+    <table id="tabla1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cedula</th>
+          <th>Multiplex</th>
+          <th>Telefono</th>
+          <th>Salario</th>
+          <th>Fecha de Contrato</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let empleado of empleados">
+        <tr>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.apellido }}</td>
+          <td>{{ empleado.cedula }}</td>
+          <td>{{ empleado.multiplex }}</td>
+          <td>{{ empleado.numTelefono }}</td>
+          <td>{{ empleado.salario }}</td>
+          <td>{{ empleado.fechaContrato }}</td>
+          <td>
+            <button (click)="editarEmpleado(empleado)">Editar</button>
+            <button (click)="eliminarEmpleado(empleado)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

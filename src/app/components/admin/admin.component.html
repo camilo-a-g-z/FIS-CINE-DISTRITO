@@ -1,0 +1,38 @@
+<div class="titulo">
+  <h1>Cine Distrito Administrador</h1>
+</div>
+<div class="body">
+  <div class="sidebar">
+    <h1>ADMIN</h1>
+    <ul>
+      <li>
+        <a class="btn btn-primary boton-menu" [routerLink]="['empleados']"
+          >Empleados</a
+        >
+      </li>
+      <li>
+        <button class="btn btn-primary boton-menu" [routerLink]="['multiplex']">
+          Multiplex
+        </button>
+      </li>
+      <li>
+        <button class="btn btn-primary boton-menu" [routerLink]="['peliculas']">
+          Peliculas
+        </button>
+      </li>
+      <li>
+        <button class="btn btn-primary boton-menu" routerLink="/home">
+          Home
+        </button>
+      </li>
+      <li>
+        <button class="btn btn-primary boton-menu" (click)="logout()">
+          Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="ventana">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="body">
+  <h1 class="titulo">Cine Distrito</h1>
+  <form (submit)="registro()">
+    <div class="form">
+      <h1>Registro</h1>
+      <div class="grupo">
+        <input
+          type="text"
+          name="nombre"
+          class="form-control"
+          [(ngModel)]="nombre"
+          required=""
+        />
+        <label for="">Nombre</label>
+      </div>
+      <div class="grupo">
+        <input
+          type="text"
+          name="apellido"
+          class="form-control"
+          [(ngModel)]="apellido"
+          required=""
+        />
+        <label for="">Apellido</label>
+      </div>
+      <div class="grupo">
+        <input
+          type="text"
+          name="email"
+          class="form-control"
+          [(ngModel)]="email"
+          required
+        />
+        <label for="">Correo</label>
+      </div>
+      <div class="grupo">
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          [(ngModel)]="password"
+          required
+        />
+        <label for="">Contraseña</label>
+      </div>
+      <input class="boton" type="submit" value="registro" />
+      <p>
+        ¿Ya tienes una cuenta?
+        <a class="link" routerLink="/login">¡Inicia sesión!</a>
+      </p>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

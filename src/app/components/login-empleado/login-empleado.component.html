@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="body">
+  <h1 class="titulo">Cine Distrito</h1>
+  <form (submit)="login()">
+    <div class="form">
+      <h1>Inicia sesión</h1>
+      <div class="grupo">
+        <input
+          type="text"
+          name="email"
+          class="form-control"
+          [(ngModel)]="cedula"
+          required
+        />
+        <label for="">Correo</label>
+      </div>
+      <div class="grupo">
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          [(ngModel)]="password"
+          required
+        />
+        <label for="">Contraseña</label>
+      </div>
+      <input class="boton" type="submit" value="login" />
+      <p>
+        ¿Eres un cliente?
+        <a class="link" routerLink="/login">¡Ingresa a tu cuenta!</a>
+      </p>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

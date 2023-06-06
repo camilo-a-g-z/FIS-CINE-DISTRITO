@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<div class="body">
+  <div class="image">
+    <img src="{{ pelicula.urlPelicula }}" />
+  </div>
+  <div class="container">
+    <div class="titulo">
+      {{ pelicula.nombre }}
+    </div>
+    <div class="desc">
+      {{ pelicula.sinopsis }}
+      <br />
+      Duracion: {{ pelicula.duracion }}
+      <br />
+      Generos: {{ pelicula.genero }}
+    </div>
+    <div class="funciones">
+      <p class="texto">Escoge tu multiplex:</p>
+      <select
+        class="select"
+        name="multiplexS"
+        #multiplexS="ngModel"
+        [(ngModel)]="multiplex"
+        (change)="buscarFunciones()"
+      >
+        <option
+          *ngFor="let multiplex of multiplexes"
+          value="{{ multiplex.nombre }}"
+        >
+          {{ multiplex.nombre }}
+        </option>
+      </select>
+      <p class="texto">Escoge la fecha de la función que deseas:</p>
+      <button
+        class="boton"
+        *ngFor="let funcion of funciones"
+        [id]="funcion.id"
+        (click)="buscarSala(funcion)"
+      >
+        {{ convertirFecha(funcion.id) }}
+      </button>
+      <div>
+        <label>Seleccione cantidad de sillas</label>
+        <select
+          class="select"
+          name="cantidadSillasS"
+          #cantidadSillasS="ngModel"
+          [(ngModel)]="cantidadSillas"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <br />
+      <button class="boton" (click)="mostrarSillas()">Escoge tu silla</button>
+      <div class="checkbox-container">
+        <div
+          class="checkbox"
+          style="flex-basis: 20%"
+          *ngFor="let silla of sillasMostrar; let i = index"
+        >
+          <label *ngIf="funcion.sillas[i] == 'libre'">
+            <input
+              type="checkbox"
+              [(ngModel)]="silla.ocupada"
+              (change)="toggleSeleccion(silla)"
+              [ngModelOptions]="{ standalone: true }"
+              [id] = "silla.silla"
+            />
+            {{ silla.silla }}
+          </label>
+          <label *ngIf="funcion.sillas[i] != 'libre'">
+            <input
+              type="checkbox"
+              [(ngModel)]="silla.ocupada"
+              (change)="toggleSeleccion(silla)"
+              [ngModelOptions]="{ standalone: true }"
+              disabled
+            />
+            {{ silla.silla }}
+          </label>
+        </div>
+      </div>
+      <br />
+      <button class="boton" (click)="comprar()">Comprar</button>
+    </div>
+  </div>
+  <div class="carrusel">
+    <app-carrusel></app-carrusel>
+  </div>
+</div>
+<app-footer></app-footer>

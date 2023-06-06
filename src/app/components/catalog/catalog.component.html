@@ -1,0 +1,20 @@
+<div class="body">
+  <div class="titulo">
+    <h1>Funciones del mes</h1>
+  </div>
+  <div class="cards" *ngFor="let pelicula of peliculas">
+    <div class="image">
+      <img src="{{ pelicula.urlPelicula }}" />
+    </div>
+    <div class="title">
+      <h1>{{ pelicula.nombre }}</h1>
+    </div>
+    <div class="desc">
+      <p>{{ pelicula.sinopsis }}</p>
+    </div>
+    <div class="boton">
+      <button (click)="verFunciones(pelicula)">Ver funciones</button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
